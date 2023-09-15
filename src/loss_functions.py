@@ -9,7 +9,7 @@ def mse(y_true, y_pred):
 
 def mse_derivative(y_true, y_pred):
     """
-    Calculates the derivative (∂E/∂Y) of the Mean Squared Error 
+    Calculates the derivative (∂E/∂Y) of the Mean Squared Error (MSE)
     between the estimated values and the actual value.
     """
     return 2 * (y_pred - y_true) / np.size(y_true)      # 2/n * (Y* - Y)
