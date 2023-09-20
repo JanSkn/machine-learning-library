@@ -1,10 +1,12 @@
 import numpy as np
+import dill
+from typing import BinaryIO
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs = 1000, learning_rate = 0.1, log_error = False, log_details = True) -> None:
     """
-    Trains the neuronal network by performing forward pass 
+    Trains the neural network by performing forward pass 
     and back propagation and also computes the error for every epoch.
 
     To log the parameters of the network: log_details
@@ -55,7 +57,7 @@ def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, l
 
 def predict(X: np.array, network: list) -> np.array:
     """
-    The neuronal network computes the output of a given input X.
+    The neural network computes the output of a given input X.
 
     X (numpy.array): Training input
     network (list[Layer]): List of network layers
@@ -66,17 +68,43 @@ def predict(X: np.array, network: list) -> np.array:
 
     return output
 
+def save(file_name: str, network: list) -> None:
+    """
+    Saves the trained network to the storage.
+    Recommended file ending: .pkl
+
+    file_name (str): Name of the file
+    network (list[Layer]): The network to save
+    """
+    with open(file_name, 'wb') as file:     # wb: writing in binary mode
+        dill.dump(network, file)
+
+def load(file_name: str) -> BinaryIO:
+    """
+    Loads the trained network from the storage.
+    Recommended file ending: .pkl
+
+    file_name (str): Name of the file
+    """
+    with open(file_name, 'rb') as file:     # rb: reading in binary mode
+        return dill.load(file)
+
 def plot(network, density = 25):
     """
-    Takes points and plots their prediction of the neuronal network on a 3D graph.
+    Takes points and plots their prediction of the neural network on a 3D graph.
 
     network (list[Layer]): List of network layers
-    density (int, optional): Number of points, default: 25
+    density (int, optional): Number of points per axis, default: 25
     """
+    # TODO adjust to more than 2 data points
+    if network[0].input_size > 2:
+        print("TODO: Allow more than 2 data points as input")
+        return
+
     points = []
     for x in np.linspace(0, 1, density):
         for y in np.linspace(0, 1, density):
-            z = [[x], [y]]      # TODO adjust to more than 2 data points
+            z = [[x], [y]]      
             for layer in network:
                 z = layer.forward_pass(z)
             
