@@ -1,10 +1,11 @@
 import numpy as np
 import dill
+import time
 from typing import BinaryIO
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs = 1000, learning_rate = 0.1, log_error = False, log_details = True) -> None:
+def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs = 1000, learning_rate = 0.1, log_error = False, log_details = False, log_duration = True) -> None:
     """
     Trains the neural network by performing forward pass 
     and back propagation and also computes the error for every epoch.
@@ -20,8 +21,11 @@ def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, l
     epochs (int, optional): Hyperparameter, number of learning iterations, default: 1000
     learning_rate (int, optional): Hyperparameter, default: 0.01
     log_error (bool, optional): Logs the error of each iteration, default: False
-    log_details (bool, optional): Logs the parameters of each layer, default: True
+    log_details (bool, optional): Logs the parameters of each layer, default: False
+    log_duration (bool, optional): Logs the duration of the training, default: True
     """
+    start = time.time()
+
     for epoch in range(epochs):
         error = 0
         for x, y in zip(X, Y):
@@ -44,6 +48,8 @@ def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, l
         if log_error:
             print(f"Epoch {epoch + 1}/{epochs}, Error: {error}")
 
+    end = time.time()
+
     print()
 
     if log_details:
@@ -54,6 +60,9 @@ def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, l
                 print(f"Weights of Layer {i}:\n {layer.weights}\n")
                 print(f"Bias of Layer {i}:\n {layer.bias}\n")
                 i += 1
+
+    if log_duration:
+        print(f"Duration of training: {end - start}\n")
 
 def predict(X: np.array, network: list) -> np.array:
     """
@@ -67,6 +76,15 @@ def predict(X: np.array, network: list) -> np.array:
         output = layer.forward_pass(output) 
 
     return output
+
+def evaluate(X: np.array, Y: np.array, network: list) -> tuple:
+    # TODO 
+    i = 0
+    for x, y in zip(X, Y):
+        if x == y:
+            i += 1
+    
+    accuracy = i / np.size(X)
 
 def save(file_name: str, network: list) -> None:
     """
@@ -97,10 +115,6 @@ def plot(network, density = 25):
     density (int, optional): Number of points per axis, default: 25
     """
     # TODO adjust to more than 2 data points
-    if network[0].input_size > 2:
-        print("TODO: Allow more than 2 data points as input")
-        return
-
     points = []
     for x in np.linspace(0, 1, density):
         for y in np.linspace(0, 1, density):
