@@ -15,8 +15,8 @@ class Dense_layer(Layer):
     backpropagation(output_gradient, learning_rate)
     """
     def  __init__(self, input_size: int, output_size: int):
-        self.weights = np.random.rand(output_size, input_size)
-        self.bias = np.random.rand(output_size, 1)
+        self.weights = np.random.randn(output_size, input_size)
+        self.bias = np.random.randn(output_size, 1)
 
     def forward_pass(self, x: np.array) -> np.dot:
         """
