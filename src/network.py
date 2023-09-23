@@ -77,14 +77,52 @@ def predict(X: np.array, network: list) -> np.array:
 
     return output
 
-def evaluate(X: np.array, Y: np.array, network: list) -> tuple:
-    # TODO 
-    i = 0
-    for x, y in zip(X, Y):
-        if x == y:
-            i += 1
+def evaluate(X: np.array, Y: np.array) -> list[tuple]:
+    """
+    Evaluates the neural network by calculating 
+    Accuracy, Precision, Recall and F1-Score.
+
+    Returns a list of tuples. 
+    First tuple index: Label, second tuple index: Its measures.
+
+    X (np.array): Prediction of the network
+    Y (np.array): Real output
+    """
+    labels = set()
+    result = []
+
+    for label in Y: 
+        if label not in labels:     # don't consider duplicates
+            labels.add(label)
+            tp = tn = fp = fn = accuracy = precision = recall = f1_score = 0
+            print(f"Evaluation of {label}:")
+            for i in range(len(Y)):
+                if Y[i] == label:
+                    if Y[i] == X[i]:
+                        tp += 1
+                    else:
+                        fp += 1
+                else:
+                    if X[i] == label:
+                        fn += 1
+                    else:
+                        tn += 1
+
+            if tp + tn + fp + fn > 0:
+                accuracy = (tp + tn) / (tp + tn + fp + fn)
+            if tp + fp > 0:
+                precision = tp / (tp + fp)
+            if tp + fn > 0:
+                recall = tp / (tp + fn)
+            if precision + recall > 0:
+                f1_score = (2 * precision * recall) / (precision + recall)
+            
+            measures = (label, {"Accuracy": accuracy, "Precision": precision, "Recall": recall, "F1-Score": f1_score})
+            print(measures, "\n")
+            result.append(measures)
     
-    accuracy = i / np.size(X)
+    return result
+
 
 def save(file_name: str, network: list) -> None:
     """
@@ -114,7 +152,7 @@ def plot(network, density = 25):
     network (list[Layer]): List of network layers
     density (int, optional): Number of points per axis, default: 25
     """
-    # TODO adjust to more than 2 data points
+    # TODO adjust to arbitrary amount of data points
     points = []
     for x in np.linspace(0, 1, density):
         for y in np.linspace(0, 1, density):
@@ -127,8 +165,8 @@ def plot(network, density = 25):
     points = np.array(points)
 
     figure = plt.figure()
-    axes = figure.add_subplot(111, projection='3d')
-    axes.scatter(points[:, 0], points[:, 1], points[:, 2], c=points[:, 2], cmap="winter")
+    axes = figure.add_subplot(111, projection = '3d')
+    axes.scatter(points[:, 0], points[:, 1], points[:, 2], c=points[:, 2], cmap = "winter")
     axes.set_title("Decision Boundary")
     
     figure.canvas.manager.full_screen_toggle()
