@@ -21,7 +21,7 @@ input_length = 784
 training_data_size = 10000
 testing_data_size = 20
 
-def adjust_data(X: np.ndarray, Y: np.array, data_size: int) -> tuple:
+def adjust_data(X: np.ndarray, Y: np.ndarray, data_size: int) -> tuple:
     """
     Transforms input matrix to input vector and normalize input.
     Transforms output to one hot.
