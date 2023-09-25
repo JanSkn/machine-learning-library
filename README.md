@@ -60,15 +60,15 @@ _Follow these steps to run the project._
    ```sh
    pip install numpy
    ```
-4. Install dill
+4. Install Dill
    ```sh
    pip install dill
    ```
-5. Install matplotlib
+5. Install Matplotlib
    ```sh
    pip install matplotlib
    ```
-6. If you want to try out the digit recognition (mnist) example, install tensorflow for training data
+6. If you want to try out the digit recognition (mnist) example, install Tensorflow for training data
    ```sh
    pip install tensorflow
    ```
