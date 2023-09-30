@@ -5,6 +5,11 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
+# prevents certificate error when trying to downlaod the MNIST data over the internet
+# can get removed if there is no error on your device 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 import numpy as np
 from keras.datasets import mnist
 import keras.utils
