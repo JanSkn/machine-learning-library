@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/janskn/machine-learning-library">
-    <img src="src/images/logo.jpg" alt="Logo" width="80" height="80">
+    <img src="images/logo.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Machine Learning Library</h3>
@@ -83,10 +83,10 @@ _Follow these steps to run the project._
 To create a network import the following:
 ```python
 import numpy as np
-from dense_layer import Dense_layer
-from activation_functions import your_activation_function
-from loss_functions import your_loss_function, your_loss_function_derivative
-from network import your_function
+from neural_network.dense_layer import Dense_layer
+from neural_network.activation_functions import your_activation_function
+from neural_network.loss_functions import your_loss_function, your_loss_function_derivative
+from neural_network.network import your_function
 ````
 Create a neural network:
 ```python
