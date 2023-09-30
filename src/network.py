@@ -95,7 +95,7 @@ def evaluate(X: np.array, Y: np.array) -> list[tuple]:
         if label not in labels:     # don't consider duplicates
             labels.add(label)
             tp = tn = fp = fn = accuracy = precision = recall = f1_score = 0
-            print(f"Evaluation of {label}:")
+
             for i in range(len(Y)):
                 if Y[i] == label:
                     if Y[i] == X[i]:
@@ -117,9 +117,7 @@ def evaluate(X: np.array, Y: np.array) -> list[tuple]:
             if precision + recall > 0:
                 f1_score = (2 * precision * recall) / (precision + recall)
             
-            measures = (label, {"Accuracy": accuracy, "Precision": precision, "Recall": recall, "F1-Score": f1_score})
-            print(measures, "\n")
-            result.append(measures)
+            result.append((label, {"Accuracy": accuracy, "Precision": precision, "Recall": recall, "F1-Score": f1_score}))
     
     return result
 
@@ -145,7 +143,7 @@ def load(file_name: str) -> BinaryIO:
     with open(file_name, 'rb') as file:     # rb: reading in binary mode
         return dill.load(file)
 
-def plot(network, density = 25):
+def plot(network: list, density = 25) -> None:
     """
     Takes points and plots their prediction of the neural network on a 3D graph.
 
