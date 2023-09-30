@@ -1,4 +1,4 @@
-# allows import from parent folder
+# allows import from different folder
 import sys
 import os
 current = os.path.dirname(os.path.realpath(__file__))
@@ -8,10 +8,10 @@ sys.path.append(parent)
 import numpy as np
 from keras.datasets import mnist
 import keras.utils
-from dense_layer import Dense_layer
-from activation_functions import Tanh
-from loss_functions import mse, mse_derivative
-from network import train, save 
+from neural_network.dense_layer import Dense_layer
+from neural_network.activation_functions import Tanh
+from neural_network.loss_functions import mse, mse_derivative
+from neural_network.network import train, save 
 
 # load training data
 # x_train: image of 28 x 28 pixels, y_train: output of the number (0-9)
@@ -50,6 +50,6 @@ if __name__ == "__main__":
     ]
 
     # train and save the model
-    train(x_train, y_train, network, mse, mse_derivative, epochs=100, log_error=True, log_duration=True)
+    train(x_train, y_train, network, mse, mse_derivative, epochs = 100, log_error = True, log_duration = True)
     save("mnist.pkl", network)
 
