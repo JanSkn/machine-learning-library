@@ -1,5 +1,5 @@
 import numpy as np
-from layer import Layer
+from neural_network.layer import Layer
 
 class Dense_layer(Layer):
     """
