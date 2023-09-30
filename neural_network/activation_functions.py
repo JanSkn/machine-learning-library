@@ -53,7 +53,7 @@ class Softmax(Activation):
     derivative(x)
     """
     def __init__(self) -> None:
-        function = lambda x: np.exp(x) / np.sum(np.exp(x)) 
+        function = lambda x: np.exp(x - np.max(x)) / np.sum(np.exp(x - np.max(x)))      # stable softmax (x = x - np.max(x)): prevent overflow/underflow (float limits)
         derivative = lambda x: function(x) * (1 - function(x))
         super().__init__(function, derivative)
 

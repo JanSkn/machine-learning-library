@@ -28,6 +28,9 @@ def cross_entropy_loss(y_true: np.array, y_pred: np.array) -> float:
     y_true (numpy.array): Correct output
     y_pred (numpy.array): Predicted output
     """
+    epsilon = 1e-15
+    y_pred = np.clip(y_pred, epsilon, 1 - epsilon)      # stable cross entropy: clip predicted values to avoid values close to 0
+
     return -np.sum(y_true * np.log(y_pred))             # −∑ y_i * log(y_i*)
 
 def cross_entropy_loss_derivative(y_true: np.array, y_pred: np.array) -> np.array:
@@ -38,4 +41,5 @@ def cross_entropy_loss_derivative(y_true: np.array, y_pred: np.array) -> np.arra
     y_true (numpy.array): Correct output
     y_pred (numpy.array): Predicted output
     """
-    return -np.log(y_pred)                               
+    return -np.log(y_pred)        
+                  
