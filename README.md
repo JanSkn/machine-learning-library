@@ -10,7 +10,7 @@
   <h3 align="center">Machine Learning Library</h3>
 
   <p align="center">
-    A simple library for machine learning topics like neural networks.
+    A simple library for machine learning topics.
     <br />
     <a href="https://github.com/janskn/machine-learning-library"><strong>Explore the docs »</strong></a>
     <br />
@@ -26,10 +26,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This library implements machine learning features only using numpy.
-So far, it supports creating neural networks with dense layers, different activation functions and loss functions.
-You can save your trained network to the storage and evaluate its performance.
+This library implements machine learning features only using NumPy.
+It supports basic features of supervised and unsupervised learning.
+<br />
+<br />
+You can
+- create neural networks with dense layers, different activation functions and loss functions,
+- save your trained network to the storage and evaluate its performance,
+- cluster your data without knowing classes before,
+- and visualize the decision.
 
+<br />
 The library is constantly getting expanded.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -56,7 +63,7 @@ _Follow these steps to run the project._
    ```sh
    sudo apt-get install python3
    ```
-3. Install Numpy
+3. Install NumPy
    ```sh
    pip install numpy
    ```
@@ -101,6 +108,8 @@ neural_network = [
 
 You can now train, save, evaluate, ... the network.
 To get an idea, have a look into the examples folder.
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
