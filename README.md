@@ -34,7 +34,7 @@ You can
 - create neural networks with dense layers, different activation functions and loss functions,
 - save your trained network to the storage and evaluate its performance,
 - cluster your data without knowing classes before,
-- and visualize the decision.
+- visualize the decision.
 
 <br />
 The library is constantly getting expanded.
