@@ -5,8 +5,9 @@ class Scaling:
     def min_max_normalization(data: np.ndarray) -> np.ndarray:
         """
         Normalizes Data in a range from 0 to 1 using minx-max Value of every Feature. 
-        Wir machen das damit große im Sinne von hoher Wert Features unsere 
-        Ähnlichkeits bzw Distanzberechnungen nicht dominieren.
+        Real-world datasets often contain features that are 
+        varying in degrees of magnitude, range, and units. 
+        Therefore, perform feature scaling, otherwise some features dominate the calculations.
         """
         #each row is a data point, each column symbolizes a feature
         #we need to find min and max for every feature
@@ -23,8 +24,9 @@ class Scaling:
     def z_normalization(data: np.ndarray) -> np.ndarray:
         """
         Normalizes Data in a range from 0 to 1 using Z-Scores.
-        Wir machen das damit große im Sinne von hoher Wert Features unsere 
-        Ähnlichkeits bzw Distanzberechnungen nicht dominieren.
+        Real-world datasets often contain features that are 
+        varying in degrees of magnitude, range, and units. 
+        Therefore, perform feature scaling, otherwise some features dominate the calculations.
         """
         #each row is a data point, each column symbolizes a feature
         #we need to find mean and standart derivation for every feature
