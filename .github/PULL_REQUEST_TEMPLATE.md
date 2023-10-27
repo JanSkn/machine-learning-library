@@ -1,8 +1,6 @@
-# Pull Request Template
-
 ## Description of the pull request:
 
-[Replace this text with a short description of the pull request].
+[Replace this text with a short description of the pull request]
 
 ## Changes:
 
