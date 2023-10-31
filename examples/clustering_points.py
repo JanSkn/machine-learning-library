@@ -20,7 +20,7 @@ print(random_points[:max_number_of_points])
 print("...")
 print()
 
-kmeans = KMeans()
+kmeans = KMeans(5)
 labels = kmeans.fit(random_points, max_iterations = 100)
 
 print("Assigned Clusters:")
