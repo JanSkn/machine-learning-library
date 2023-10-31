@@ -1,1 +1,1 @@
-__all__ = ["k_means"]
+__all__ = ["clustering", "k_means", "k_medoids"]
