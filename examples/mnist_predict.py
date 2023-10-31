@@ -1,3 +1,5 @@
+# Example for neural network
+
 # allows import from different folder
 import sys
 import os
