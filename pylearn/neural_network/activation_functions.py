@@ -1,5 +1,5 @@
 import numpy as np
-from neural_network.activation import Activation   
+from pylearn.neural_network.activation import Activation   
 
 class Sigmoid(Activation):
     """

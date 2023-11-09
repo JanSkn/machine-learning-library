@@ -1,5 +1,5 @@
 import numpy as np
-from neural_network.layer import Layer
+from pylearn.neural_network.layer import Layer
 
 class Activation(Layer):
     """

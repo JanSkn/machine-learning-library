@@ -1,5 +1,5 @@
 import numpy as np
-from clustering.clustering import Clustering
+from pylearn.clustering.clustering import Clustering
 
 class KMeans(Clustering):
     """

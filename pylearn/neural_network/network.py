@@ -3,7 +3,6 @@ import dill
 import time
 from typing import BinaryIO
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs = 1000, learning_rate = 0.1, log_error = False, log_details = False, log_duration = True) -> None:
     """
