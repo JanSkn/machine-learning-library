@@ -26,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This library implements machine learning features only using NumPy.
+This library implements machine learning features from scratch.
 It supports basic features of supervised and unsupervised learning.
 <br />
 <br />
@@ -90,10 +90,7 @@ _Follow these steps to run the project._
 To create a network import the following:
 ```python
 import numpy as np
-from neural_network.dense_layer import Dense_layer
-from neural_network.activation_functions import your_activation_function
-from neural_network.loss_functions import your_loss_function, your_loss_function_derivative
-from neural_network.network import your_function
+from pylearn import Dense_layer, your_activation_function, your_loss_function, your_loss_function_derivative
 ````
 Create a neural network:
 ```python
