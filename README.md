@@ -7,7 +7,7 @@
     <img src="https://github.com/github-images/images/blob/main/machine-learning-library.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Machine Learning Library</h3>
+  <h3 align="center">PyLearn</h3>
 
   <p align="center">
     A simple library for machine learning topics.
@@ -26,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This library implements machine learning features from scratch.
+PyLearn implements machine learning features from scratch.
 It supports basic features of supervised and unsupervised learning.
 <br />
 <br />
