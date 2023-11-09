@@ -9,12 +9,10 @@ sys.path.append(parent)
 
 import numpy as np
 import matplotlib.pyplot as plt
-from clustering.k_means import KMeans
-from clustering.k_medoids import KMedoids
+from pylearn import KMeans, KMedoids
 
 random_points = np.random.randint(0, 100, (100, 2))
 max_number_of_points = 30
-
 print(f"Data Points ({max_number_of_points} of {len(random_points)}):")
 print(random_points[:max_number_of_points])
 print("...")
@@ -22,7 +20,6 @@ print()
 
 kmeans = KMeans(5)
 labels = kmeans.fit(random_points, max_iterations = 100)
-
 print("Assigned Clusters:")
 print(labels)
 print()

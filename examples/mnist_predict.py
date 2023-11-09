@@ -10,8 +10,8 @@ sys.path.append(parent)
 import numpy as np
 from keras.datasets import mnist
 import matplotlib.pyplot as plt
-from neural_network.network import predict, load, evaluate
 from examples.mnist_train import adjust_data, testing_data_size
+from pylearn import predict, load, evaluate
 
 network = load("mnist.pkl")
 
