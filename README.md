@@ -63,21 +63,9 @@ _Follow these steps to run the project._
    ```sh
    sudo apt-get install python3
    ```
-3. Install NumPy
+3. Navigate to the project folder and install the requirements
    ```sh
-   pip install numpy
-   ```
-4. Install Dill
-   ```sh
-   pip install dill
-   ```
-5. Install Matplotlib
-   ```sh
-   pip install matplotlib
-   ```
-6. If you want to try out the digit recognition (mnist) example, install Tensorflow for training data
-   ```sh
-   pip install tensorflow
+   pip install -r requirements.txt
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -105,8 +93,6 @@ neural_network = [
 
 You can now train, save, evaluate, ... the network.
 To get an idea, have a look into the examples folder.
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
