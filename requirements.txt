@@ -1,5 +1,0 @@
-numpy
-pandas
-dill
-matplotlib      
-tensorflow      # for training data
