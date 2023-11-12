@@ -34,10 +34,14 @@ You can
 - create neural networks with dense layers, different activation functions and loss functions,
 - save your trained network to the storage and evaluate its performance,
 - cluster your data without knowing classes before,
-- visualize the decision.
+- visualize the decision
+- classify data
+- and more
 
 <br />
-The library is constantly getting expanded.
+    Read the <a href="https://janskn-machine-learning-library.readthedocs.io/en/latest/index.html">Documentation</a> for more information.
+    <br />
+    <br />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -45,7 +49,9 @@ The library is constantly getting expanded.
 
 ### Built With
 
-This project was built with Python
+The source code was built with Python
+<br />
+Documentation uses Sphinx
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,7 +71,11 @@ _Follow these steps to run the project._
    ```
 3. Navigate to the project folder and install the requirements
    ```sh
-   pip install -r requirements.txt
+   pip install -r docs/requirements.txt
+   ```
+   or
+   ```sh
+   pip install .
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -75,24 +85,15 @@ _Follow these steps to run the project._
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To create a network import the following:
+Import the library:
 ```python
-import numpy as np
-from pylearn import Dense_layer, your_activation_function, your_loss_function, your_loss_function_derivative
+import pylearn as pl
 ````
-Create a neural network:
-```python
-neural_network = [
-  Dense_layer(x, y),
-  your_activation_function(),
-  ...
-  Dense_layer(y, z),
-  your_activation_function()
-]
-```
+For details of usage, have a look at the `examples` folder.
+<br />
+Or read the <a href="https://janskn-machine-learning-library.readthedocs.io/en/latest/index.html">Documentation</a>
 
-You can now train, save, evaluate, ... the network.
-To get an idea, have a look into the examples folder.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
