@@ -65,7 +65,10 @@ _Follow these steps to run the project._
    ```sh
    git clone https://github.com/janskn/machine-learning-library.git
    ```
-2. Install Python depending on your operating system
+2. Install Python
+   ```sh
+   sudo apt-get install python3
+   ```
 3. Navigate to the project folder and install the requirements
    ```sh
    pip install -r docs/requirements.txt
