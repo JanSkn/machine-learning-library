@@ -5,6 +5,7 @@
 
 Welcome to PyLearn's documentation!
 ===================================
+TODO - custom description
 
 .. toctree::
    :maxdepth: 2
