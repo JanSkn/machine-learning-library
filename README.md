@@ -39,7 +39,7 @@ You can
 - and more
 
 <br />
-    Read the <a href="https://janskn-machine-learning-library.readthedocs.io/en/latest/">Documentation</a> for more information.
+    Read the <a href="https://janskn-machine-learning-library.readthedocs.io/en/latest/index.html">Documentation</a> for more information.
     <br />
     <br />
 
@@ -91,7 +91,7 @@ import pylearn as pl
 ````
 For details of usage, have a look at the `examples` folder.
 <br />
-Or read the <a href="https://janskn-machine-learning-library.readthedocs.io/en/latest/">Documentation</a>
+Or read the <a href="https://janskn-machine-learning-library.readthedocs.io/en/latest/index.html">Documentation</a>
 
 
 
