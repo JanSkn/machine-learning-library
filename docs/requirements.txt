@@ -4,3 +4,4 @@ dill
 matplotlib      
 tensorflow      # for training data
 sphinx
+sphinx-theme-pd
