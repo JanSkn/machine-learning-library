@@ -12,7 +12,13 @@
 ## Screenshots:
 N/A
 
-**Related Issues:**
+## Documentation:
+
+- [ ] **Documentation updated:** Have you updated the relevant changes in the documentation to match these changes in the code?
+
+Instructions for updating the documentation can be found under [Contributing](CONTRIBUTING.md).
+
+## Related Issues:
 
 [Replace this text with the number(s) of the related issues, e.g., #123]
 
