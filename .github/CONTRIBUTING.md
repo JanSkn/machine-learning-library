@@ -70,6 +70,6 @@ Returns:
 
 ## Code of Conduct
 
-- Please adhere to the [Code of Conduct](.github/CODE_OF_CONDUCT.md) in all interactions within the project.
+- Please adhere to the [Code of Conduct](CODE_OF_CONDUCT.md) in all interactions within the project.
 
 Thank you for your participation!
