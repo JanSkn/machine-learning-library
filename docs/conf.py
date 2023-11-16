@@ -6,6 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+# in the docs/ folder, enter 
+# sphinx-apidoc --ext-autodoc -o . .. and then
+# make html
+
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))

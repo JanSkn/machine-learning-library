@@ -5,11 +5,24 @@
 
 Welcome to PyLearn's documentation!
 ===================================
-TODO - custom description
+
+PyLearn implements machine learning features from scratch.  
+
+It supports basic features of supervised and unsupervised learning.
+
+**Contribute on** `GitHub <https://github.com/JanSkn/machine-learning-library>`_.
+
+Getting started
+===================================
+.. toctree::
+   :maxdepth: 2
+   :caption: About PyLearn:
+
+   custom/about
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Code Documentation:
 
    modules
 

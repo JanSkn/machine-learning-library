@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   pylearn.classification
    pylearn.clustering
    pylearn.neural_network
 
