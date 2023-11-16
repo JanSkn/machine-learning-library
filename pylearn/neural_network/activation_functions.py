@@ -5,10 +5,6 @@ class Sigmoid(Activation):
     """
     Defines the Sigmoid activation function for a layer.
     Inherits from Activation and passes the function and derivative.
-  
-    Methods:
-    function(x)
-    derivative(x)
     """
     def __init__(self) -> None:
         function = lambda x: 1 / (1 + np.exp(-x))
@@ -19,10 +15,6 @@ class ReLU(Activation):
     """
     Defines the ReLU activation function for a layer.
     Inherits from Activation and passes the function and derivative.
-  
-    Methods:
-    function(x)
-    derivative(x)
     """
     def __init__(self) -> None:
         function = lambda x: np.maximum(0, x)           # change every element less than 0 to 0
@@ -33,10 +25,6 @@ class Tanh(Activation):
     """
     Defines the Tanh activation function for a layer.
     Inherits from Activation and passes the function and derivative.
-  
-    Methods:
-    function(x)
-    derivative(x)
     """
     def __init__(self) -> None:
         function = lambda x: np.tanh(x)
@@ -47,10 +35,6 @@ class Softmax(Activation):
     """
     Defines the Softmax activation function for a layer.
     Inherits from Activation and passes the function and derivative.
-  
-    Methods:
-    function(x)
-    derivative(x)
     """
     def __init__(self) -> None:
         function = lambda x: np.exp(x - np.max(x)) / np.sum(np.exp(x - np.max(x)))      # stable softmax (x = x - np.max(x)): prevent overflow/underflow (float limits)

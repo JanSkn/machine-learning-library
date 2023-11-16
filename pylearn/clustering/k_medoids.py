@@ -7,25 +7,23 @@ class KMedoids(Clustering):
     Centroid must be a data point itself.
 
     Attributes:
-    k (int): Number of clusters
-    centroids (numpy.ndarray): Matrix of centroids of all k clusters
-    data_points (numpy.ndarray): Matrix of all data points
-    data_points_to_cluster (list): List of each data point's assigned cluster
-    clusters (list): List of all k clusters
-
-    Methods:
-    euclidean_distance(x, centroids)
-    fit(X, max_iterations, threshold)
+        :k (int): Number of clusters
+        :centroids (numpy.ndarray): Matrix of centroids of all k clusters
+        :data_points (numpy.ndarray): Matrix of all data points
+        :data_points_to_cluster (list): List of each data point's assigned cluster
+        :clusters (list): List of all k clusters
     """
     
 
-    def fit(self, X: np.ndarray, max_iterations = 500, threshold = 0.001) -> np.array:
+    def fit(self, X: np.ndarray, max_iterations=500, threshold=0.001) -> list:
         """
-        Assigns each data point the best cluster by calculating the distances.
+        Parameters:
+            :X (numpy.ndarray): Matrix of data points (each row is one data point) 
+            :max_iterations (int, optional): Number of iterations to update the centroids, default: 500
+            :threshold (float, optional): Stopping criterion to interrupt the update iterations, default: 0.001
 
-        X (numpy.ndarray): Matrix of data points (each row is one data point) 
-        max_iterations (int, optional): Number of iterations to update the centroids, default: 500
-        threshold (float, optional): Stopping criterion to interrupt the update iterations, default: 0.001
+        Returns:
+            A list of the to data points assigned clusters
         """
         # axis 0: rows, axis 1: columns
         # Centroids as k x len(X) matrix with one centroid each row

@@ -6,19 +6,13 @@ class Clustering:
     Defines the basic properties and methods that can be used.
 
     Attributes:
-    k (int): Number of clusters
-    centroids (numpy.ndarray): Matrix of centroids of all k clusters
-    data_points (numpy.ndarray): Matrix of all data points
-    data_points_to_cluster (list): List of each data point's assigned cluster
-    clusters (list): List of all k clusters
-
-    Methods:
-    euclidean_distance(x, centroids)
-    median(x)
-    assigned_clusters(clusters)
-    rename(old_clusters, new_clusters)
+        :k (int): Number of clusters
+        :centroids (numpy.ndarray): Matrix of centroids of all k clusters
+        :data_points (numpy.ndarray): Matrix of all data points
+        :data_points_to_cluster (list): List of each data point's assigned cluster
+        :clusters (list): List of all k clusters
     """
-    def __init__(self, k = 3) -> None:
+    def __init__(self, k=3) -> None:
         self.k = k
         self.centroids = None
         self.data_points = None
@@ -26,26 +20,33 @@ class Clustering:
         self.clusters = None
 
     @staticmethod
-    def euclidean_distance(x: np.array, centroids: np.ndarray) -> np.array:
+    def euclidean_distance(x: np.ndarray, centroids: np.ndarray) -> np.ndarray:
         """
         Calculates distance of a data point x 
         to all k centroids.
-        Returns an array with each distance.
 
-        x (numpy.array): Data point (vector)
-        centroids (numpy.ndarray): Centroids in a matrix (each row is one centroid) 
+        Parameters:
+            :x (numpy.ndarray): Data point (vector)
+            :centroids (numpy.ndarray): Centroids in a matrix (each row is one centroid) 
+
+        Returns:
+            Array of the distances
         """
         # change axis to 1 because every centroid is stored in one row
         return np.sqrt(np.sum((x - centroids)**2, axis = 1))
     
     @staticmethod
-    def median(x: np.ndarray) -> np.array:
+    def median(x: np.ndarray) -> np.ndarray:
         """
         Determines the point with the median smallest distance to
         all other data points in the cluster.
         The median point must be one of the data points.
 
-        x (numpy.ndarray): Matrix of all data points in one cluster
+        Parameters:
+            x (numpy.ndarray): Matrix of all data points in one cluster
+
+        Returns:
+            Data point as one-element array
         """  
         min_distance = float('inf') 
     
@@ -64,9 +65,13 @@ class Clustering:
 
     def assigned_clusters(self, clusters: list | str | int) -> list[tuple]:
         """
-        Returns all to the clusters assigned data points.
+        All to the clusters assigned data points.
 
-        clusters (list | str | int): Cluster name(s) 
+        Parameters:
+            :clusters (list | str | int): Cluster name(s) 
+
+        Returns:
+            List of the data points
         """
         mapping = zip(self.data_points, self.data_points_to_cluster)
         result = []
@@ -77,10 +82,14 @@ class Clustering:
 
     def rename(self, old_clusters: list, new_clusters: list) -> list: 
         """
-        Renames the clusters. Returns a list of the data points. 
+        Renames the clusters.  
 
-        old_clusters (list): List of all old clusters to get renamed
-        new_clusters (list): List of the renamed clusters
+        Parameters:
+            :old_clusters (list): List of all old clusters to get renamed
+            :new_clusters (list): List of the renamed clusters
+
+        Returns:
+            A list of the data points
         """
         # TODO add parameter limit (int) to limit the output of each cluster data points 
         mapping = zip(old_clusters, new_clusters)

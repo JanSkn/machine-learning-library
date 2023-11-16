@@ -4,24 +4,27 @@ import time
 from typing import BinaryIO
 import matplotlib.pyplot as plt
 
-def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs = 1000, learning_rate = 0.1, log_error = False, log_details = False, log_duration = True) -> None:
+def train(X: np.ndarray, Y: np.ndarray, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs=1000, learning_rate=0.1, log_error=False, log_details=False, log_duration=True) -> None:
     """
     Trains the neural network by performing forward pass 
     and back propagation and also computes the error for every epoch.
 
-    To log the parameters of the network: log_details
-    To log the error of the network: log_error
-
-    X (numpy.array): Training input
-    Y (numpy.array): Training output
-    network (list[Layer]): List of network layers
-    loss_function (classmethod): Loss function to compute the error
-    loss_derivative (classmethod): Derivative of the loss function to perform backpropagation
-    epochs (int, optional): Hyperparameter, number of learning iterations, default: 1000
-    learning_rate (int, optional): Hyperparameter, default: 0.01
-    log_error (bool, optional): Logs the error of each iteration, default: False
-    log_details (bool, optional): Logs the parameters of each layer, default: False
-    log_duration (bool, optional): Logs the duration of the training, default: True
+    To log: log_details, log_error
+    
+    Parameters:
+        :X (numpy.array): Training input
+        :Y (numpy.array): Training output
+        :network (list[Layer]): List of network layers
+        :loss_function (classmethod): Loss function to compute the error
+        :loss_derivative (classmethod): Derivative of the loss function to perform backpropagation
+        :epochs (int, optional): Hyperparameter, number of learning iterations, default: 1000
+        :learning_rate (int, optional): Hyperparameter, default: 0.01
+        :log_error (bool, optional): Logs the error of each iteration, default: False
+        :log_details (bool, optional): Logs the parameters of each layer, default: False
+        :log_duration (bool, optional): Logs the duration of the training, default: True
+    
+    Returns:
+        None
     """
     start = time.time()
 
@@ -63,12 +66,16 @@ def train(X: np.array, Y: np.array, network: list, loss_function: classmethod, l
     if log_duration:
         print(f"Duration of training: {end - start}\n")
 
-def predict(X: np.array, network: list) -> np.array:
+def predict(X: np.ndarray, network: list) -> np.ndarray:
     """
     The neural network computes the output of a given input X.
 
-    X (numpy.array): Training input
-    network (list[Layer]): List of network layers
+    Parameters:
+        :X (numpy.array): Training input
+        :network (list[Layer]): List of network layers
+
+    Returns:
+        The predicted output as an array
     """
     output = X
     for layer in network:
@@ -76,16 +83,18 @@ def predict(X: np.array, network: list) -> np.array:
 
     return output
 
-def evaluate(X: np.array, Y: np.array) -> list[tuple]:
+def evaluate(X: np.ndarray, Y: np.ndarray) -> list[tuple]:
     """
     Evaluates the neural network by calculating 
     Accuracy, Precision, Recall and F1-Score.
 
-    Returns a list of tuples. 
-    First tuple index: Label, second tuple index: Its measures.
+    Parameters:
+        :X (np.array): Prediction of the network
+        :Y (np.array): Real output
 
-    X (np.array): Prediction of the network
-    Y (np.array): Real output
+    Returns:
+        List of tuples of the parameters.
+        First tuple index: Label, second tuple index: Its measures.
     """
     labels = set()
     result = []
@@ -126,8 +135,12 @@ def save(file_name: str, network: list) -> None:
     Saves the trained network to the storage.
     Recommended file ending: .pkl
 
-    file_name (str): Name of the file
-    network (list[Layer]): The network to save
+    Parameters:
+        :file_name (str): Name of the file
+        :network (list[Layer]): The network to save
+
+    Returns:
+        None
     """
     with open(file_name, 'wb') as file:     # wb: writing in binary mode
         dill.dump(network, file)
@@ -137,17 +150,25 @@ def load(file_name: str) -> BinaryIO:
     Loads the trained network from the storage.
     Recommended file ending: .pkl
 
-    file_name (str): Name of the file
+    Parameters:
+        :file_name (str): Name of the file
+
+    Returns:
+        The file
     """
     with open(file_name, 'rb') as file:     # rb: reading in binary mode
         return dill.load(file)
 
-def plot(network: list, density = 25) -> None:
+def plot(network: list, density=25) -> None:
     """
     Takes points and plots their prediction of the neural network on a 3D graph.
 
-    network (list[Layer]): List of network layers
-    density (int, optional): Number of points per axis, default: 25
+    Parameters:
+        :network (list[Layer]): List of network layers
+        :density (int, optional): Number of points per axis, default: 25
+
+    Returns:
+        None
     """
     # TODO adjust to arbitrary amount of data points
     points = []
@@ -162,8 +183,8 @@ def plot(network: list, density = 25) -> None:
     points = np.array(points)
 
     figure = plt.figure()
-    axes = figure.add_subplot(111, projection = '3d')
-    axes.scatter(points[:, 0], points[:, 1], points[:, 2], c=points[:, 2], cmap = "winter")
+    axes = figure.add_subplot(111, projection='3d')
+    axes.scatter(points[:, 0], points[:, 1], points[:, 2], c=points[:, 2], cmap="winter")
     axes.set_title("Decision Boundary")
     
     figure.canvas.manager.full_screen_toggle()
