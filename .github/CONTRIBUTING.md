@@ -17,9 +17,32 @@ Thank you for considering to contribute! Here are some guidelines to help you co
 
 **Updating the documentation (in `docs`):**
 
-- TODO
-  
+The documentation is partly generated automatically with Sphinx.
+Everything under `/custom` is manual documentation.
+
+To update it:
+
+1. Navigate to the `docs` folder
+2. Enter
+   ```sh
+   sphinx-apidoc --ext-autodoc -o . ..
+   ```
+3. To see the changes locally under Mac/Linux:
+   ```sh
+   make html
+   ```
+   or on Windows:
+   ```sh
+   make.bat html
+   ```
+   and then open `_build/index.html`
+4. If you made changes on an existing file, delete the corresponding .rst file and redo (2.)
+5. Add the file to `pylearn.rst`
+6. Add explaining text and/or examples to the documentation under `custom/usage.rst`.
+7. Commit the changes
+
 **Type hints:**
+
 Please use type hints for parameters and return values.
 
 **Docstrings:**
