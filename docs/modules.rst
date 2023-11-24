@@ -5,4 +5,3 @@ machine-learning-library
    :maxdepth: 4
 
    pylearn
-   setup
