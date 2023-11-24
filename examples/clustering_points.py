@@ -11,6 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pylearn import KMeans, KMedoids
 
+# Due to the short training duration, this example doesn't store and load the trained model and retraines every execution
+
 random_points = np.random.randint(0, 100, (100, 2))
 max_number_of_points = 30
 print(f"Data Points ({max_number_of_points} of {len(random_points)}):")
