@@ -1,7 +1,5 @@
 import numpy as np
-import dill
 import time
-from typing import BinaryIO
 import matplotlib.pyplot as plt
 
 def train(X: np.ndarray, Y: np.ndarray, network: list, loss_function: classmethod, loss_derivative: classmethod, epochs=1000, learning_rate=0.1, log_error=False, log_details=False, log_duration=True) -> None:
@@ -71,7 +69,7 @@ def predict(X: np.ndarray, network: list) -> np.ndarray:
     The neural network computes the output of a given input X.
 
     Parameters:
-        :X (numpy.array): Training input
+        :X (numpy.array): Testing input
         :network (list[Layer]): List of network layers
 
     Returns:
@@ -129,36 +127,6 @@ def evaluate(X: np.ndarray, Y: np.ndarray) -> list[tuple]:
     
     return result
 
-
-def save(file_name: str, network: list) -> None:
-    """
-    Saves the trained network to the storage.
-    Recommended file ending: .pkl
-
-    Parameters:
-        :file_name (str): Name of the file
-        :network (list[Layer]): The network to save
-
-    Returns:
-        None
-    """
-    with open(file_name, 'wb') as file:     # wb: writing in binary mode
-        dill.dump(network, file)
-
-def load(file_name: str) -> BinaryIO:
-    """
-    Loads the trained network from the storage.
-    Recommended file ending: .pkl
-
-    Parameters:
-        :file_name (str): Name of the file
-
-    Returns:
-        The file
-    """
-    with open(file_name, 'rb') as file:     # rb: reading in binary mode
-        return dill.load(file)
-
 def plot(network: list, density=25) -> None:
     """
     Takes points and plots their prediction of the neural network on a 3D graph.
@@ -170,7 +138,7 @@ def plot(network: list, density=25) -> None:
     Returns:
         None
     """
-    # TODO adjust to arbitrary amount of data points
+    # TODO adjust to arbitrary dimensions
     points = []
     for x in np.linspace(0, 1, density):
         for y in np.linspace(0, 1, density):
