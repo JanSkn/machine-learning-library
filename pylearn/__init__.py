@@ -1,3 +1,5 @@
+from .model_utils import save, load
+
 from .clustering.clustering import Clustering
 from .clustering.k_means import KMeans
 from .clustering.k_medoids import KMedoids
@@ -13,7 +15,7 @@ from .neural_network.loss_functions import (mse,
                                             cross_entropy_loss_derivative)
 from .neural_network.network import (train,
                                      predict,
-                                     evaluate,
-                                     save,
-                                     load,
+                                     evaluate,                               
                                      plot)
+
+from .classification.bayes import GaussianNaiveBayes, MultinomialNaiveBayes
