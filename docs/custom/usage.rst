@@ -10,20 +10,52 @@ To use them, just import pylearn:
    import pylearn as pl
 
 |
+
+Each model can be saved to storage to prevent retraining your model. Just import it:
+
+.. code-block:: python
+
+   import pl.save, pl.load
+
+|
+
 The major features are:
 
 |
 Classification
 ~~~~~~~~~~~~~~
 
-Documentation following soon.
+You can choose between Gaussian and Multinomial Naive Bayes.
+
+Gaussian works for continuous data, whereas Multinomial is perfect for text classification.
+
+The usage of both is quite similar:
+
+.. code-block:: python
+
+   gnb = pl.GaussianNaiveBayes()
+   mnb = pl.GaussianNaiveBayes()
+
+|
+Now, train the model by using the fit function, we will use gnb to continue:
+
+.. code-block:: python
+
+   gnb.fit(features, output)
+
+|
+Let the model predict your input:
+
+.. code-block:: python
+
+   gnb.predict(features)
 
 |
 |
 Clustering
 ~~~~~~~~~~
 
-You can choose between K-Means and K-Medoids as clustering algorithms.
+You can choose between K-Means and K-Medoids as clustering models.
 
 The usage of both is quite similar:
 
@@ -33,7 +65,7 @@ The usage of both is quite similar:
    kmedoids = pl.KMedoids()
 
 |
-Now, train the algorithm by using the fit function, we will use kmeans to continue:
+Now, train the model by using the fit function, we will use kmeans to continue:
 
 .. code-block:: python
 
@@ -77,13 +109,8 @@ Now, train the model:
     train(x_train, y_train, network, loss, loss_derivative, epochs, log_error, log_duration)
 
 |
-Depending on your needs, training could take some time. To prevend training again each time, store the model:
+Depending on your needs, training could take some time. To prevend training again each time, store the model as described at the top.
 
-.. code-block:: python
-
-   save("network.pkl", network)
-
-|
 Let the model predict your input:
 
 .. code-block:: python
