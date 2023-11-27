@@ -11,11 +11,11 @@ import pandas as pd
 import numpy as np
 from pylearn import GaussianNaiveBayes, evaluate
 
-# Due to the short training duration, this example doesn't store and load the trained model and retraines every execution
+# Due to the short training duration, this example doesn't store and load the trained model and does training again every execution
 
 data = pd.read_csv("examples/data/breast_cancer_data.csv")
 
-x_train, x_test = pd.DataFrame(data.iloc[:, :5]), pd.DataFrame(data.iloc[:25, :5])
+x_train, x_test = data.iloc[:, :5], data.iloc[:25, :5]
 y_train, y_test = pd.DataFrame(data.iloc[:, -1]), pd.DataFrame(data.iloc[:25, -1])
 
 nb = GaussianNaiveBayes()
