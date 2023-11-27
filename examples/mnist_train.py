@@ -1,3 +1,5 @@
+# Example for neural network
+
 # allows import from different folder
 import sys
 import os
@@ -13,10 +15,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 import numpy as np
 from keras.datasets import mnist
 import keras.utils
-from neural_network.dense_layer import Dense_layer
-from neural_network.activation_functions import Tanh
-from neural_network.loss_functions import mse, mse_derivative
-from neural_network.network import train, save 
+from pylearn import Dense_layer, Tanh, mse, mse_derivative, train, save
 
 # load training data
 # x_train: image of 28 x 28 pixels, y_train: output of the number (0-9)

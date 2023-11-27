@@ -1,5 +1,5 @@
 import numpy as np
-from neural_network.layer import Layer
+from pylearn.neural_network.layer import Layer
 
 class Dense_layer(Layer):
     """
@@ -7,33 +7,37 @@ class Dense_layer(Layer):
     to use the forward pass and backpropagation.
     
     Attributes:
-    weights (numpy.ndarray): Weight matrix of the layer
-    bias (numpy.array): Bias vector of the layer
-
-    Methods:
-    forward_pass(x)
-    backpropagation(output_gradient, learning_rate)
+        :weights (numpy.ndarray): Weight matrix of the layer
+        :bias (numpy.array): Bias vector of the layer
     """
-    def  __init__(self, input_size: int, output_size: int):
+    def  __init__(self, input_size: int, output_size: int) -> None:
         self.weights = np.random.randn(output_size, input_size)
         self.bias = np.random.randn(output_size, 1)
 
-    def forward_pass(self, x: np.array) -> np.dot:
+    def forward_pass(self, x: np.ndarray) -> np.ndarray:
         """
         Receives its input (x) from the previous layer
         and provides an output for the next layer.
 
-        x (numpy.array): Input vector of the previous layer
+        Parameters:
+            :x (numpy.ndrray): Input vector of the previous layer
+
+        Returns:
+            Result as array
         """
         self.x = x                                          # store input to use it in backpropagation           
         return np.dot(self.weights, self.x) + self.bias     # y = Wx + b
     
-    def backpropagation(self, output_gradient: np.array, learning_rate = 0.1) -> np.array:
+    def backpropagation(self, output_gradient: np.ndarray, learning_rate=0.1) -> np.ndarray:
         """
         Updates the parameters depending on the derivatives.
 
-        output_gradient (numpy.array): input of the next layer (output = ∂E/∂Y)
-        learning_rate (numpy.array, optional): hyperparameter to determine the step size of updates, default: 0.01
+        Parameters:
+            :output_gradient (numpy.array): input of the next layer (output = ∂E/∂Y)
+            :learning_rate (numpy.array, optional): hyperparameter to determine the step size of updates, default: 0.01
+
+        Returns:
+            Derivative of the function as array
         """
         self.weights -= learning_rate * np.dot(output_gradient, self.x.T)       # W := W - LR * ∂E/∂Y * x^T
         self.bias -= learning_rate * output_gradient                            # b := b - LR * ∂E/∂Y

@@ -7,7 +7,7 @@
     <img src="https://github.com/github-images/images/blob/main/machine-learning-library.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Machine Learning Library</h3>
+  <h3 align="center">PyLearn</h3>
 
   <p align="center">
     A simple library for machine learning topics.
@@ -26,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This library implements machine learning features only using NumPy.
+PyLearn implements machine learning features from scratch.
 It supports basic features of supervised and unsupervised learning.
 <br />
 <br />
@@ -34,10 +34,14 @@ You can
 - create neural networks with dense layers, different activation functions and loss functions,
 - save your trained network to the storage and evaluate its performance,
 - cluster your data without knowing classes before,
-- visualize the decision.
+- visualize the decision
+- classify data
+- and more
 
 <br />
-The library is constantly getting expanded.
+    Read the <a href="https://pylearn-ml.readthedocs.io/en/latest/">Documentation</a> for more information.
+    <br />
+    <br />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -45,7 +49,9 @@ The library is constantly getting expanded.
 
 ### Built With
 
-This project was built with Python
+The source code was built with Python
+<br />
+Documentation uses Sphinx
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -63,21 +69,13 @@ _Follow these steps to run the project._
    ```sh
    sudo apt-get install python3
    ```
-3. Install NumPy
+3. Navigate to the project folder and install the requirements
    ```sh
-   pip install numpy
+   pip install -r docs/requirements.txt
    ```
-4. Install Dill
+   or
    ```sh
-   pip install dill
-   ```
-5. Install Matplotlib
-   ```sh
-   pip install matplotlib
-   ```
-6. If you want to try out the digit recognition (mnist) example, install Tensorflow for training data
-   ```sh
-   pip install tensorflow
+   pip install .
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -87,27 +85,13 @@ _Follow these steps to run the project._
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To create a network import the following:
+Import the library:
 ```python
-import numpy as np
-from neural_network.dense_layer import Dense_layer
-from neural_network.activation_functions import your_activation_function
-from neural_network.loss_functions import your_loss_function, your_loss_function_derivative
-from neural_network.network import your_function
+import pylearn as pl
 ````
-Create a neural network:
-```python
-neural_network = [
-  Dense_layer(x, y),
-  your_activation_function(),
-  ...
-  Dense_layer(y, z),
-  your_activation_function()
-]
-```
-
-You can now train, save, evaluate, ... the network.
-To get an idea, have a look into the examples folder.
+For details of usage, have a look at the `examples` folder.
+<br />
+Or read the <a href="https://pylearn-ml.readthedocs.io/en/latest/">Documentation</a>
 
 
 
@@ -119,13 +103,14 @@ To get an idea, have a look into the examples folder.
 ## Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+**Please follow the [Contributing](.github/CONTRIBUTING.md) guidelines.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
