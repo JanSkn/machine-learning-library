@@ -34,7 +34,7 @@ The usage of both is quite similar:
 .. code-block:: python
 
    gnb = pl.GaussianNaiveBayes()
-   mnb = pl.GaussianNaiveBayes()
+   mnb = pl.MultinomialNaiveBayes()
 
 |
 Now, train the model by using the fit function, we will use gnb to continue:
