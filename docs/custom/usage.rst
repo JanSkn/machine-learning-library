@@ -106,7 +106,7 @@ Now, train the model:
 
 .. code-block:: python
 
-    train(x_train, y_train, network, loss, loss_derivative, epochs, log_error, log_duration)
+    pl.NeuralNetwork.fit(x_train, y_train, network, loss, loss_derivative, epochs, log_error, log_duration)
 
 |
 Depending on your needs, training could take some time. To prevend training again each time, store the model as described at the top.
@@ -115,7 +115,7 @@ Let the model predict your input:
 
 .. code-block:: python
 
-   predict(x, network)
+   pl.NeuralNetwork.predict(x, network)
 
 |
 You can also evaluate the training:
