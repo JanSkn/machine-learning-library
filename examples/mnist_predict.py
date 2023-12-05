@@ -11,7 +11,7 @@ import numpy as np
 from keras.datasets import mnist
 import matplotlib.pyplot as plt
 from examples.mnist_train import adjust_data, testing_data_size
-from pylearn import predict, load, evaluate
+from pylearn import NeuralNetwork, load, evaluate
 
 network = load("mnist.pkl")
 
@@ -24,7 +24,7 @@ y_data = []
 
 print(f"Prediction of the first {testing_data_size} numbers:\n")
 for x, y in zip(x_test, y_test):
-    output = predict(x, network)
+    output = NeuralNetwork.predict(x, network)
     x_data.append(np.argmax(output))
     y_data.append(np.argmax(y))
     # argmax returns index of the highest value, thus returns the number with the highest prediction
@@ -36,11 +36,11 @@ index = int(input(f"Enter an index (0-{testing_data_size - 1}) of the test data 
 if index >= 0 and index < testing_data_size:
     img = x_test[index]
     plt.imshow(img.reshape(28, 28), cmap = "Greys")
-    plt.title(f"Prediction: {np.argmax(predict(x_test[index], network))}, Real: {np.argmax(y_test[index])}")
+    plt.title(f"Prediction: {np.argmax(NeuralNetwork.predict(x_test[index], network))}, Real: {np.argmax(y_test[index])}")
     plt.show()
 else:
     print("Invalid index.")
 
 print()
 print("Evaluation of the neural network:")
-print(evaluate(np.array(x_data).T, np.array(y_data).T))
+print(evaluate(x_data, y_data))

@@ -19,7 +19,7 @@ You can (hopefully soon) install pylearn using pip:
 Documentation
 -------------
 
-The official documentation can be found at: https://janskn-machine-learning-library.readthedocs.io/en/latest/index.html
+The official documentation can be found at: https://pylearn-ml.readthedocs.io/en/latest/
 
 License
 -------

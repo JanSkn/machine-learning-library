@@ -1,4 +1,6 @@
-from .model_utils import save, load
+from .model_utils import (evaluate,
+                          save, 
+                          load)
 
 from .clustering.clustering import Clustering
 from .clustering.k_means import KMeans
@@ -13,9 +15,7 @@ from .neural_network.loss_functions import (mse,
                                             mse_derivative,
                                             cross_entropy_loss,
                                             cross_entropy_loss_derivative)
-from .neural_network.network import (train,
-                                     predict,
-                                     evaluate,                               
-                                     plot)
+from .neural_network.network import NeuralNetwork
 
-from .classification.bayes import GaussianNaiveBayes, MultinomialNaiveBayes
+from .classification.bayes import GaussianNaiveBayes
+                                   

@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/janskn/machine-learning-library">
-    <img src="https://github.com/github-images/images/blob/main/machine-learning-library.jpg" alt="Logo" width="80" height="80">
+    <img src="https://drive.google.com/uc?export=view&id=1pDgbi7uZqIGRK4wllBcQRvJNYDTvrIe5" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">PyLearn</h3>

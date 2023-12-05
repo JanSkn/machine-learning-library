@@ -15,13 +15,13 @@ ssl._create_default_https_context = ssl._create_unverified_context
 import numpy as np
 from keras.datasets import mnist
 import keras.utils
-from pylearn import Dense_layer, Tanh, mse, mse_derivative, train, save
+from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save
 
 # load training data
 # x_train: image of 28 x 28 pixels, y_train: output of the number (0-9)
 (x_train, y_train), (_, _) = mnist.load_data()
 
-input_length = 784
+input_length = 784          # 28 x 28
 training_data_size = 10000
 testing_data_size = 20
 
@@ -54,6 +54,6 @@ if __name__ == "__main__":
     ]
 
     # train and save the model
-    train(x_train, y_train, network, mse, mse_derivative, epochs = 100, log_error = True, log_duration = True)
+    NeuralNetwork.fit(x_train, y_train, network, mse, mse_derivative, epochs=100, log_error=True, log_duration=True)
     save("mnist.pkl", network)
 
