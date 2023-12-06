@@ -78,20 +78,21 @@ def load(file_name: str) -> BinaryIO:
     with open(file_name, 'rb') as file:     # rb: reading in binary mode
         return dill.load(file)
     
-def min_max_normalization(data: np.ndarray) -> np.ndarray:
+def min_max_normalization(data: np.ndarray, axis=0) -> np.ndarray:
     """
     Normalizes Data in a range from 0 to 1 using min-max value of every feature. 
     Perform feature scaling to prevent features from dominating the calculations.
 
     Parameters:
         :data (numpy.ndarray): Data to normalize
+        :axis (int, optional): Axis to perform normalization, default: 0
 
     Returns:
         Normalized data
     """
     # each row is a data point, each column symbolizes a feature
-    min = np.amin(data, axis=0)
-    max = np.amax(data, axis=0)
+    min = np.amin(data, axis=axis)
+    max = np.amax(data, axis=axis)
     normalized_data = np.ndarray(shape=data.shape)
 
     for (data_point, feature), value in np.ndenumerate(data):
@@ -99,20 +100,21 @@ def min_max_normalization(data: np.ndarray) -> np.ndarray:
 
     return normalized_data
 
-def z_normalization(data: np.ndarray) -> np.ndarray:
+def z_normalization(data: np.ndarray, axis=0) -> np.ndarray:
     """
     Normalizes Data in a range from 0 to 1 using Z-Scores.
     Perform feature scaling to prevent features from dominating the calculations.
 
     Parameters:
         :data (numpy.ndarray): Data to normalize
+        :axis (int, optional): Axis to perform normalization, default: 0
 
     Returns:
         Normalized data
     """
     # each row is a data point, each column symbolizes a feature
-    mean = np.mean(data, axis=0)
-    std = np.std(data, axis=0)
+    mean = np.mean(data, axis=axis)
+    std = np.std(data, axis=axis)
     normalized_data = np.ndarray(shape=data.shape)
 
     for (data_point, feature), value in np.ndenumerate(data):
