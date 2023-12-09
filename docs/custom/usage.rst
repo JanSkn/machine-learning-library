@@ -11,11 +11,27 @@ To use them, just import pylearn:
 
 |
 
-Each model can be saved to storage to prevent retraining your model. Just import it:
+Each model can be saved to storage to prevent training your model again. Just import it:
 
 .. code-block:: python
 
    import pl.save, pl.load
+
+|
+
+If you want to normalize your input data, simply import:
+
+.. code-block:: python
+
+   import pl.min_max_normalization, pl.z_normalization
+
+|
+
+You can evaluate every model with accuracy, precision, recall and F1 score:
+
+.. code-block:: python
+
+   import pl.evaluate
 
 |
 
@@ -25,19 +41,19 @@ The major features are:
 Classification
 ~~~~~~~~~~~~~~
 
-You can choose between Gaussian and Multinomial Naive Bayes.
+You can use Gaussian Naive Bayes.
 
-Gaussian works for continuous data, whereas Multinomial is perfect for text classification.
+Gaussian works for continuous data.
+Multinomial Naive Bayes works perfect for text classification and will come in version 1.1.0.
 
-The usage of both is quite similar:
+The usage is quite simple:
 
 .. code-block:: python
 
    gnb = pl.GaussianNaiveBayes()
-   mnb = pl.MultinomialNaiveBayes()
 
 |
-Now, train the model by using the fit function, we will use gnb to continue:
+Now, train the model by using the fit function:
 
 .. code-block:: python
 
@@ -109,19 +125,9 @@ Now, train the model:
     pl.NeuralNetwork.fit(x_train, y_train, network, loss, loss_derivative, epochs, log_error, log_duration)
 
 |
-Depending on your needs, training could take some time. To prevend training again each time, store the model as described at the top.
 
 Let the model predict your input:
 
 .. code-block:: python
 
    pl.NeuralNetwork.predict(x, network)
-
-|
-You can also evaluate the training:
-
-.. code-block:: python
-   
-   evaluate(x_test, y_test)
-
-
