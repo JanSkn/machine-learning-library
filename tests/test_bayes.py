@@ -80,20 +80,30 @@ def test_model_fitting():
 
     Y_pred = model.predict(X_test)
     Y_pred = np.array(Y_pred).T[0]
-
     train_accuracy = accuracy(Y_train, Y_pred, average=True)      
     test_accuracy = accuracy(Y_test, Y_pred, average=True)
 
     assert abs(train_accuracy - test_accuracy) < 0.15
 
 def test_model_performance():
-    np.random.seed(0)   # set seed to reproduce values
-    X_train = np.random.rand(100, 2)  # 100 samples with 2 features each
-    Y_train = np.random.randint(0, 2, 100)  # 100 labels, 0 or 1
+    def generate_test_data(seed: int):
+        np.random.seed(seed)  # set seed to reproduce values
+        X = np.random.rand(100, 2)
 
-    np.random.seed(1)   # set seed to reproduce values
-    X_test = np.random.rand(100, 2) 
-    Y_test = np.random.randint(0, 2, 100) 
+        # 1 if sum of both features is 1, else 0
+        Y = (X[:, 0] + X[:, 1] > 1).astype(int)
+        data = pd.DataFrame(X, columns=['Feature1', 'Feature2'])
+        data['Label'] = Y
+
+        return data
+
+    training = generate_test_data(0)
+    X_train = training[["Feature1", "Feature2"]]
+    Y_train = training["Label"]
+
+    testing = generate_test_data(1)
+    X_test = testing[["Feature1", "Feature2"]]
+    Y_test = testing["Label"]
 
     model = GaussianNaiveBayes()
     model.fit(X_train, Y_train)
@@ -106,6 +116,6 @@ def test_model_performance():
     rec = recall(Y_test, Y_pred, average=True)
     f1 = f1_score(Y_test, Y_pred, average=True)
 
-    assert prec > 0.7
-    assert rec > 0.7
-    assert f1 > 0.7
+    assert prec > 0.85
+    assert rec > 0.85
+    assert f1 > 0.85
