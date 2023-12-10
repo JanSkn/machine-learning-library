@@ -1,8 +1,11 @@
-from .model_utils import (evaluate,
-                          save, 
-                          load,
+from .model_utils import (accuracy,
+                          precision,
+                          recall,
+                          f1_score,
                           min_max_normalization,
-                          z_normalization)
+                          z_normalization,
+                          save, 
+                          load)
 
 from .clustering.clustering import Clustering
 from .clustering.k_means import KMeans
