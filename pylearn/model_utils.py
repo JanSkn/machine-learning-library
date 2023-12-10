@@ -3,7 +3,7 @@ import pandas as pd
 import dill
 from typing import BinaryIO
 
-def accuracy(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
+def accuracy(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | list:
     """
     Evaluates the model by calculating Accuracy.
 
@@ -32,7 +32,7 @@ def accuracy(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
 
     return accuracy_scores
 
-def precision(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
+def precision(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | list:
     """
     Evaluates the model by calculating Precision.
 
@@ -59,7 +59,7 @@ def precision(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
 
     return precision_scores
 
-def recall(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
+def recall(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | list:
     """
     Evaluates the model by calculating Recall.
 
@@ -86,7 +86,7 @@ def recall(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
 
     return recall_scores
 
-def f1_score(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> list:
+def f1_score(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | list:
     """
     Evaluates the model by calculating F1 score.
 
