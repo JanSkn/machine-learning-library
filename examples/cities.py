@@ -40,7 +40,7 @@ plt.show()
 print("Coordinates of continents:")
 print(kmeans.centroids)
 print()
-# you can now rename the centroids to North America, Europe, Asia 
+# you can now rename the centroids to North America, Europe, Asia with kmeans.rename
 
 kmedoids = KMedoids()
 labels = kmedoids.fit(city_coordinates, max_iterations = 100)
@@ -56,4 +56,4 @@ plt.show()
 
 print("Coordinates of continents:")
 print(kmedoids.centroids)
-# you can now rename the centroids to North America, Europe, Asia 
+# you can now rename the centroids to North America, Europe, Asia with kmedoids.rename
