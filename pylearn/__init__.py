@@ -22,5 +22,5 @@ from .neural_network.loss_functions import (mse,
                                             cross_entropy_loss_derivative)
 from .neural_network.network import NeuralNetwork
 
-from .classification.bayes import GaussianNaiveBayes
+from .classification.gaussian_naive_bayes import GaussianNaiveBayes
                                    

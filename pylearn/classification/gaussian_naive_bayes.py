@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import time
-import re
 
 class GaussianNaiveBayes:
     """
@@ -90,4 +89,3 @@ class GaussianNaiveBayes:
         mean, variance = self.mean.iloc[index], self.variance.iloc[index]       # mean, variance for each class (row)
         # P(x_i|y) = N(μ, σ) with x = x_i, μ = μ_y, σ = σ_y
         return np.exp(-((x - mean) ** 2)/(2 * variance)) / np.sqrt(2 * np.pi * variance)      
-
