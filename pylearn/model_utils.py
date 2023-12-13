@@ -157,7 +157,7 @@ def z_normalization(data: np.ndarray, axis=0) -> np.ndarray:
 
     return normalized_data
 
-def to_one_hot(y: np.ndarray, num_of_classes=10):
+def to_one_hot(y: np.ndarray, num_of_classes=10) -> np.ndarray:
     """
     Converts array of numbers to array of One Hots.
 
