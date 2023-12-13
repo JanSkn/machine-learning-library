@@ -1,8 +1,3 @@
-[![Test](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml)
-[![Coverage](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml)
-[![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=dev)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=dev)
-
-
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
@@ -24,6 +19,11 @@
     ·
     <a href="https://github.com/janskn/machine-learning-library/issues">Request Feature</a>
   </p>
+
+[![Test](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml)
+[![Coverage](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml)
+[![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=dev)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=dev)
+
 </div>
 
 
