@@ -7,13 +7,8 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-# prevents certificate error when trying to downlaod the MNIST data over the internet
-# can get removed if there is no error on your device 
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
-
 import numpy as np
-from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save, load
+from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save, load, to_one_hot
 
 # load training data
 # x_train: image of 28 x 28 pixels, y_train: output of the number (0-9)
@@ -22,26 +17,6 @@ from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save,
 input_length = 784          # 28 x 28
 training_data_size = 10000
 testing_data_size = 20
-
-def to_one_hot(y, num_classes=10):
-    """
-    Konvertiert ein Array von Klassenindizes in eine One-Hot-Darstellung.
-
-    Parameters:
-        y (array-like): Array von Klassenindizes.
-        num_classes (int): Anzahl der Klassen. Standardmäßig auf 10 gesetzt.
-
-    Returns:
-        numpy.ndarray: One-Hot-Darstellung der Eingabedaten.
-    """
-    # Initialisiere ein Array von Nullen mit der Form [Anzahl der Beispiele, Anzahl der Klassen]
-    one_hot = np.zeros((len(y), num_classes))
-    
-    # Setze für jedes Beispiel die entsprechende Stelle auf 1
-    for i, label in enumerate(y):
-        one_hot[i, label] = 1
-    
-    return one_hot
 
 def adjust_data(X: np.ndarray, Y: np.ndarray, data_size: int) -> tuple:
     """
