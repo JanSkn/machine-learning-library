@@ -157,6 +157,24 @@ def z_normalization(data: np.ndarray, axis=0) -> np.ndarray:
 
     return normalized_data
 
+def to_one_hot(y: np.ndarray, num_of_classes=10):
+    """
+    Converts array of numbers to array of One Hots.
+
+    Parameters:
+        :y (numpy.ndarray): Array of numbers
+        :num_of_classes (int, optional): Number of classes, default: 10
+
+    Returns:
+        One Hot representation of the numbers as numpy array
+    """
+    one_hot = np.zeros((len(y), num_of_classes))
+    
+    for i, label in enumerate(y):
+        one_hot[i, label] = 1
+    
+    return one_hot
+
 def save(file_name: str, model: object) -> None:
     """
     Saves the trained model to the storage.

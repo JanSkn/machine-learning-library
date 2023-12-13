@@ -4,6 +4,7 @@ from .model_utils import (accuracy,
                           f1_score,
                           min_max_normalization,
                           z_normalization,
+                          to_one_hot,
                           save, 
                           load)
 
