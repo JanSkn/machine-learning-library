@@ -8,14 +8,13 @@ parent = os.path.dirname(current)
 sys.path.append(parent)
 
 import numpy as np
-from keras.datasets import mnist
 import matplotlib.pyplot as plt
 from examples.mnist_train import adjust_data, testing_data_size
 from pylearn import NeuralNetwork, load, accuracy, precision, recall, f1_score
 
 network = load("mnist.pkl")
 
-(_, _), (x_test, y_test) = mnist.load_data()
+(_, _), (x_test, y_test) = load("examples/data/mnist.npy")
 
 x_test, y_test = adjust_data(x_test, y_test, testing_data_size)
 
