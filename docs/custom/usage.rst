@@ -35,6 +35,14 @@ You can evaluate every model with accuracy, precision, recall and F1 score:
 
 |
 
+Change numbers into a one hot representation:
+
+.. code-block:: python
+
+   import pl.to_one_hot
+
+|
+
 The major features are:
 
 |
