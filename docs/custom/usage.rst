@@ -31,7 +31,7 @@ You can evaluate every model with accuracy, precision, recall and F1 score:
 
 .. code-block:: python
 
-   import pl.evaluate
+   import pl.accuracy, pl.precision, pl.recall, pl.f1_score
 
 |
 
