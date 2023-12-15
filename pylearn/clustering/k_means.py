@@ -26,7 +26,8 @@ class KMeans(Clustering):
         """
         # axis 0: rows, axis 1: columns
         # Centroids as k x len(X) matrix with one centroid each row
-        self.centroids = np.random.uniform(np.amin(X), np.amax(X), size=(self.k, X.shape[1]))     
+        indices = np.random.choice(X.shape[0], self.k)      # initialise centroids randomly from the existing data points
+        self.centroids = X[indices]     
         self.data_points = X
         for _ in range(max_iterations):
             data_points_to_cluster = []      # stores cluster number each data point belongs to

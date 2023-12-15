@@ -9,7 +9,7 @@ sys.path.append(parent)
 
 import pandas as pd
 import numpy as np
-from pylearn import GaussianNaiveBayes, evaluate
+from pylearn import GaussianNaiveBayes, accuracy, precision, recall, f1_score
 
 # Due to the short training duration, this example doesn't store and load the trained model and does training again every execution
 
@@ -27,6 +27,9 @@ result = [x_test, y_test, prediction]
 result = pd.concat([df for df in result], axis=1)
 print(result)
 print()
-print(evaluate(np.array(prediction).T[0], np.array(y_test).T[0]))
+print("Accuracy:", accuracy(np.array(y_test).T[0], np.array(prediction).T[0], average=True))
+print("Precision:", precision(np.array(y_test).T[0], np.array(prediction).T[0], average=True))
+print("Recall:", recall(np.array(y_test).T[0], np.array(prediction).T[0], average=True))
+print("F1 Score:", f1_score(np.array(y_test).T[0], np.array(prediction).T[0], average=True))
 
 

@@ -7,14 +7,14 @@ pylearn
 pylearn is a Python machine learning library that provides implementations of various machine learning algorithms, 
 including neural networks, classification, and clustering.
 
-Installation
+Usage
 ------------
 
-You can (hopefully soon) install pylearn using pip:
+Import pylearn:
 
-.. code-block:: bash
+.. code-block:: python
 
-   pip install pylearn
+   import pylearn as pl
 
 Documentation
 -------------

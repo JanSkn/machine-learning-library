@@ -12,13 +12,21 @@
   <p align="center">
     A simple library for machine learning topics.
     <br />
-    <a href="https://github.com/janskn/machine-learning-library"><strong>Explore the docs »</strong></a>
+    <a href="https://pylearn-ml.readthedocs.io/en/latest/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/janskn/machine-learning-library/issues">Report Bug</a>
     ·
     <a href="https://github.com/janskn/machine-learning-library/issues">Request Feature</a>
   </p>
+
+  <br />
+
+  [![Test](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml)
+  [![Coverage](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml)
+  [![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=dev)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=dev)
+
+<br />
 </div>
 
 
@@ -32,10 +40,9 @@ It supports basic features of supervised and unsupervised learning.
 <br />
 You can
 - create neural networks with dense layers, different activation functions and loss functions,
-- save your trained network to the storage and evaluate its performance,
-- cluster your data without knowing classes before,
-- visualize the decision
+- cluster your data without previously known classes,
 - classify data
+- evaluate models
 - and more
 
 <br />
@@ -49,34 +56,15 @@ You can
 
 ### Built With
 
-The source code was built with Python
-<br />
-Documentation uses Sphinx
+The source code was built with Python, mainly using NumPy and Pandas.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-### Installation
+### Requirements
 
-_Follow these steps to run the project._
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/janskn/machine-learning-library.git
-   ```
-2. Install Python
-   ```sh
-   sudo apt-get install python3
-   ```
-3. Navigate to the project folder and install the requirements
-   ```sh
-   pip install -r docs/requirements.txt
-   ```
-   or
-   ```sh
-   pip install .
-   ```
+Requirements can be found under `docs/requirements.txt`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,6 +77,19 @@ Import the library:
 ```python
 import pylearn as pl
 ````
+
+Most models have a _fit_ and a _predict_ function.
+
+Just create a model, train it and use it for predictions.
+
+```python
+model = pl.Model()
+
+model.fit(x_train, y_train)
+...
+model.predict(y_test)
+```
+
 For details of usage, have a look at the `examples` folder.
 <br />
 Or read the <a href="https://pylearn-ml.readthedocs.io/en/latest/">Documentation</a>

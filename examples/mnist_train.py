@@ -7,19 +7,12 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-# prevents certificate error when trying to downlaod the MNIST data over the internet
-# can get removed if there is no error on your device 
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
-
 import numpy as np
-from keras.datasets import mnist
-import keras.utils
-from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save
+from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save, load, to_one_hot
 
 # load training data
 # x_train: image of 28 x 28 pixels, y_train: output of the number (0-9)
-(x_train, y_train), (_, _) = mnist.load_data()
+(x_train, y_train), (_, _) = load("examples/data/mnist.npy")
 
 input_length = 784          # 28 x 28
 training_data_size = 10000
@@ -36,8 +29,7 @@ def adjust_data(X: np.ndarray, Y: np.ndarray, data_size: int) -> tuple:
     """
     X = X.astype("float32") / 255                       # normalize pixel values (0-255) to values between 0 and 1
     X = X.reshape(X.shape[0], input_length, 1)          # adjust input matrix (28 x 28) to vector (784)
-    
-    Y = keras.utils.to_categorical(Y)                   # transform regression output to one hot output
+    Y = to_one_hot(Y)                                   # transform regression output to one hot output
     Y = Y.reshape(Y.shape[0], 10, 1)                    # adjust vector
 
     return X[:data_size], Y[:data_size]                 # limit data size
