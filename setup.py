@@ -34,6 +34,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 # MINOR for backwards-compatible new functions.
 # PATCH for backwards-compatible error corrections.
 
+with open('README.md', 'r') as f:
+    long_description = f.read()
+
 with open('docs/requirements.txt') as f:
     requirements = f.read().splitlines()
 
@@ -41,7 +44,9 @@ setup(
     name="pylearn",
     version="1.0.0",      
     author="Jan Skowron",
-    url="https://github.com/JanSkn/machine-learning-library",       
+    url="https://github.com/JanSkn/machine-learning-library", 
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=find_packages(),   
     install_requires=requirements
 )
