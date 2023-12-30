@@ -22,6 +22,7 @@
 
   <br />
 
+  [![PyPI version](https://badge.fury.io/py/pylearn-ml.svg)](https://badge.fury.io/py/pylearn-ml)
   [![Test](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml)
   [![Coverage](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml)
   [![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=dev)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=dev)
@@ -49,6 +50,15 @@ You can
     Read the <a href="https://pylearn-ml.readthedocs.io/en/latest/">Documentation</a> for more information.
     <br />
     <br />
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Installation
+
+Install PyLearn using `pip`:
+```sh
+pip install pylearn-ml
+````
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
