@@ -41,7 +41,7 @@ with open('docs/requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="pylearn",
+    name="pylearn-ml",
     version="1.0.0",      
     author="Jan Skowron",
     url="https://github.com/JanSkn/machine-learning-library", 
