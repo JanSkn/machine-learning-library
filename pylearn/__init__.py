@@ -24,4 +24,5 @@ from .neural_network.loss_functions import (mse,
 from .neural_network.network import NeuralNetwork
 
 from .classification.gaussian_naive_bayes import GaussianNaiveBayes
+from .classification.multinomial_naive_bayes import MultinomialNaiveBayes
                                    
