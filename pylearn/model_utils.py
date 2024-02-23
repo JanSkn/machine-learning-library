@@ -32,6 +32,20 @@ def accuracy(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | l
 
     return accuracy_scores
 
+def mean_squared_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """
+    Evaluates the model by calculating Mean Squared Error.
+
+    Parameters:
+        :y_true (numpy.ndarray): Real output
+        :y_pred (numpy.ndarray): Prediction of the model
+        
+    Returns:
+        Mean Squared Error
+    """
+    mse = np.mean((y_true - y_pred) ** 2)
+    return mse
+
 def precision(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | list:
     """
     Evaluates the model by calculating Precision.
