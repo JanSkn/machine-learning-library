@@ -7,7 +7,8 @@ from .model_utils import (accuracy,
                           to_one_hot,
                           save, 
                           load,
-                          mean_squared_error)
+                          mean_squared_error,
+                          sum_of_squared_errors)
 
 from .clustering.clustering import Clustering
 from .clustering.k_means import KMeans
