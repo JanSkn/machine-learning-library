@@ -35,6 +35,14 @@ You can evaluate every model with accuracy, precision, recall and F1 score:
 
 |
 
+Measure the quality of your models with MSE or SSE:
+
+.. code-block:: python
+
+   import pl.mean_squared_error, pl.sum_of_squared_errors
+
+|
+
 Change numbers into a one hot representation:
 
 .. code-block:: python
