@@ -4,10 +4,26 @@ pylearn.classification package
 Submodules
 ----------
 
-pylearn.classification.bayes module
------------------------------------
+pylearn.classification.gaussian\_naive\_bayes module
+----------------------------------------------------
 
-.. automodule:: pylearn.classification.bayes
+.. automodule:: pylearn.classification.gaussian_naive_bayes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pylearn.classification.multinomial\_naive\_bayes module
+-------------------------------------------------------
+
+.. automodule:: pylearn.classification.multinomial_naive_bayes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pylearn.classification.temp module
+----------------------------------
+
+.. automodule:: pylearn.classification.temp
    :members:
    :undoc-members:
    :show-inheritance:
