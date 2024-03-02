@@ -1,16 +1,16 @@
 from setuptools import setup, find_packages
 
 """
-pylearn
+PyLearn
 =======
 
-pylearn is a Python machine learning library that provides implementations of various machine learning algorithms, 
+PyLearn is a Python machine learning library that provides implementations of various machine learning algorithms, 
 including neural networks, classification, and clustering.
 
 Usage
 ------------
 
-Import pylearn:
+Import PyLearn:
 
 .. code-block:: python
 
@@ -34,15 +34,15 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 # MINOR for backwards-compatible new functions.
 # PATCH for backwards-compatible error corrections.
 
-with open('README.md', 'r') as f:
+with open("README.md", "r") as f:
     long_description = f.read()
 
-with open('docs/requirements.txt') as f:
+with open("docs/requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
     name="pylearn-ml",
-    version="1.0.0",      
+    version="1.1.0",      
     author="Jan Skowron",
     url="https://github.com/JanSkn/machine-learning-library", 
     long_description=long_description,
