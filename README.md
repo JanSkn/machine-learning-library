@@ -28,7 +28,7 @@
   <br />
   [![Test](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml)
   [![Coverage](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml)
-  [![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=dev)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=dev)
+  [![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=main)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=main)
 
 <br />
 </div>
