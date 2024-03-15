@@ -304,7 +304,7 @@ Usage Example:
 
 .. code-block:: python
 
-    gmm = pl.GaussianMixtureModeling()
+    gmm = pl.GaussianMixture()
     gmm.fit(points)
 
 |
