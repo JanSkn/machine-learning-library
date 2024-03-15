@@ -11,7 +11,7 @@ class GaussianMixture:
         :posteriors (numpy.ndarray): Matrix of the posterior probabilities
         :clusters (numpy.ndarray): List of all k clusters
     """
-    def _init_(self, g=3) -> None:
+    def __init__(self, g=3) -> None:
         self.g = g
         self.centroids = None
         self.data_points_to_cluster = None
@@ -75,7 +75,7 @@ class GaussianMixture:
         num_of_samples = X.shape[0]
         
         determinant = np.linalg.det(cov)
-        normalisation_factor = 1.0 / ((2 * np.pi)(num_of_samples / 2) * determinant ** (1.0 / 2))
+        normalisation_factor = 1.0 / ((2 * np.pi) * (num_of_samples / 2) * determinant ** (1.0 / 2))
         mean_centred_data = X - mu
         inverse_covariance = np.linalg.inv(cov)
         result = np.e**(-(1.0 / 2) * (mean_centred_data @ inverse_covariance @ mean_centred_data.T))

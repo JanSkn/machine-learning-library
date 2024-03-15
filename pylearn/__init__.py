@@ -11,6 +11,7 @@ from .model_utils import (accuracy,
                           sum_of_squared_errors)
 
 from .clustering.clustering import Clustering
+from .clustering.gaussian_mixture_model import GaussianMixture
 from .clustering.k_means import KMeans
 from .clustering.k_medoids import KMedoids
 
