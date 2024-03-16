@@ -33,9 +33,9 @@ class GaussianNaiveBayes:
         Y = pd.DataFrame(Y)
         self.classes = sorted(list(Y.iloc[:, 0].unique()))
         num_of_samples, num_of_features = X.shape 
-        self.mean = pd.DataFrame(data=0, index=range(len(self.classes)), columns=range(num_of_features))
-        self.variance = pd.DataFrame(data=0, index=range(len(self.classes)), columns=range(num_of_features))
-        self.prior = pd.DataFrame(data=0, index=range(len(self.classes)), columns=range(1))
+        self.mean = pd.DataFrame(data=0, index=range(len(self.classes)), columns=range(num_of_features)).astype(float)
+        self.variance = pd.DataFrame(data=0, index=range(len(self.classes)), columns=range(num_of_features)).astype(float)
+        self.prior = pd.DataFrame(data=0, index=range(len(self.classes)), columns=range(1)).astype(float)
 
         for index, c in enumerate(self.classes):
             class_df = X[Y.iloc[:, 0] == c]
@@ -48,7 +48,7 @@ class GaussianNaiveBayes:
         if log_duration:
             print(f"Duration of training: {end - start}\n")
 
-    def predict(self, X: np.ndarray | pd.DataFrame) -> pd.DataFrame:
+    def predict(self, X: np.ndarray | pd.DataFrame) -> np.ndarray:
         """
         Computes the output of a given X.
 
@@ -56,11 +56,11 @@ class GaussianNaiveBayes:
             :X (numpy.ndarray | pandas.DataFrame): Testing input
 
         Returns:
-            Predicted classes as pandas dataframe
+            Predicted classes as array
         """
         X = pd.DataFrame(X)
         y_pred = [self._predict(x[1:len(x)]) for x in X.itertuples()]           # x is itertuple object --> x[1:len(x)] removes index
-        return pd.DataFrame(y_pred)
+        return np.array(y_pred)
 
     def _predict(self, x: tuple) -> int | str:
         """

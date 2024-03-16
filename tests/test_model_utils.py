@@ -1,5 +1,5 @@
 import numpy as np
-from pylearn import accuracy, precision, recall, f1_score, min_max_normalization, z_normalization
+from pylearn import accuracy, precision, recall, f1_score, mean_squared_error, sum_of_squared_errors, min_max_normalization, z_normalization
 
 def test_accuracy():
     y_true = np.array([1, 2, 1, 2])
@@ -48,6 +48,22 @@ def test_f1_score():
     avg_f1_score = f1_score(y_true, y_pred, average=True)
     expected_avg_f1_score = 0.73  
     assert round(avg_f1_score, 2) == expected_avg_f1_score
+
+def test_mean_squared_error():
+    y_true = np.array([1, 2, 3])
+    y_pred = np.array([2, 2, 4])
+
+    mse = mean_squared_error(y_true, y_pred)
+    expected_mse = 2/3
+    np.testing.assert_array_almost_equal(mse, expected_mse, decimal=2)
+
+def test_sum_of_squared_errors():
+    y_true = np.array([1, 2, 3])
+    y_pred = np.array([3, 2, 1])
+
+    sse = sum_of_squared_errors(y_true, y_pred)
+    expected_sse = 8
+    assert sse == expected_sse
 
 def test_min_max_normalization():
     data = np.array([[1, 2], [3, 4]])

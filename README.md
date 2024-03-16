@@ -23,9 +23,12 @@
   <br />
 
   [![PyPI version](https://badge.fury.io/py/pylearn-ml.svg)](https://badge.fury.io/py/pylearn-ml)
+  ![PyPI - Downloads](https://img.shields.io/pypi/dm/pylearn-ml?label=PyPI%20downloads)
+  ![Pepy Total Downloads](https://img.shields.io/pepy/dt/pylearn-ml?label=Total%20downloads)
+  <br />
   [![Test](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/tests.yml)
   [![Coverage](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml/badge.svg)](https://github.com/JanSkn/machine-learning-library/actions/workflows/coverage.yml)
-  [![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=dev)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=dev)
+  [![Coverage Status](https://coveralls.io/repos/github/JanSkn/machine-learning-library/badge.svg?branch=main)](https://coveralls.io/github/JanSkn/machine-learning-library?branch=main)
 
 <br />
 </div>

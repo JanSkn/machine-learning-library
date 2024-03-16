@@ -113,6 +113,34 @@ def f1_score(y_true: np.ndarray, y_pred: np.ndarray, average=False) -> float | l
 
     return f1_scores
 
+def mean_squared_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """
+    Evaluates the model by calculating Mean Squared Error.
+
+    Parameters:
+        :y_true (numpy.ndarray): Real output
+        :y_pred (numpy.ndarray): Prediction of the model
+        
+    Returns:
+        Mean Squared Error
+    """
+    mse = np.mean((y_true - y_pred) ** 2)
+    return mse
+
+def sum_of_squared_errors(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """
+    Evaluates the model by calculating Sum of Squared Errors (SSE).
+
+    Parameters:
+        :y_true (numpy.ndarray): Real output
+        :y_pred (numpy.ndarray): Prediction of the model
+        
+    Returns:
+        Sum of Squared Errors (SSE)
+    """
+    sse = np.sum((y_true - y_pred) ** 2)
+    return sse
+
 def min_max_normalization(data: np.ndarray, axis=0) -> np.ndarray:
     """
     Normalizes Data in a range from 0 to 1 using min-max value of every feature. 

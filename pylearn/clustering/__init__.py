@@ -1,1 +1,1 @@
-__all__ = ["k_means", "k_medoids"]
+__all__ = [ "gaussian_mixture_model", "k_means", "k_medoids"]

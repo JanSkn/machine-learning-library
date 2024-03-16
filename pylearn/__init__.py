@@ -6,9 +6,12 @@ from .model_utils import (accuracy,
                           z_normalization,
                           to_one_hot,
                           save, 
-                          load)
+                          load,
+                          mean_squared_error,
+                          sum_of_squared_errors)
 
 from .clustering.clustering import Clustering
+from .clustering.gaussian_mixture_model import GaussianMixture
 from .clustering.k_means import KMeans
 from .clustering.k_medoids import KMedoids
 
@@ -24,4 +27,5 @@ from .neural_network.loss_functions import (mse,
 from .neural_network.network import NeuralNetwork
 
 from .classification.gaussian_naive_bayes import GaussianNaiveBayes
+from .classification.multinomial_naive_bayes import MultinomialNaiveBayes
                                    

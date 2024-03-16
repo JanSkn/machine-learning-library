@@ -1,141 +1,355 @@
+=====================================
 Usage
-=====
+=====================================
 
-PyLearn provides different features from supervised and unsupervised learning. 
+|
 
-To use them, just import pylearn:
+Installation
+============
+
+PyLearn can be installed via pip:
+
+.. code-block:: bash
+
+    pip install pylearn-ml
+
+.. note::
+
+    For installation: `pylearn-ml`
+    
+    For import: `pylearn`
+
+|
+
+
+Importing PyLearn
+-----------------
+
+To use PyLearn, import it as follows:
 
 .. code-block:: python
 
-   import pylearn as pl
+    import pylearn as pl
+
+|
+|
+
+Usage
+============
 
 |
 
-Each model can be saved to storage to prevent training your model again. Just import it:
+Save and Load Models
+--------------------
+
+To save and load models, you can use the following functions.
+
+This avoids training your model again with every program execution.
 
 .. code-block:: python
 
-   import pl.save, pl.load
+    pl.save(model, filename)
+    pl.load(filename)
 
 |
 
-If you want to normalize your input data, simply import:
+**Example**
+
+.. code-block:: python
+    
+    network = [
+      ...
+    ]
+    
+    # train model
+    pl.NeuralNetwork.fit(...)
+    pl.save(network, "models/network.pkl")
+
+    ...
+
+    # test model
+    network = pl.load("models/network.pkl")
+    pl.NeuralNetwork.predict(...)
+
+|
+|
+
+Normalization
+-------------
+
+Functions for normalization:
 
 .. code-block:: python
 
-   import pl.min_max_normalization, pl.z_normalization
+    pl.min_max_normalization(data)
+    pl.z_normalization(data)
 
 |
 
-You can evaluate every model with accuracy, precision, recall and F1 score:
+**Example**
 
 .. code-block:: python
 
-   import pl.accuracy, pl.precision, pl.recall, pl.f1_score
+    # Data to normalize
+    data = [2, 5, 10, 15, 20]
+
+    min_max_norm = pl.min_max_normalization(data)
+    z_norm = pl.z_normalization(data)
 
 |
+|
 
-Change numbers into a one hot representation:
+Evaluation Metrics
+------------------
+
+To evaluate classification models, you can use:
 
 .. code-block:: python
 
-   import pl.to_one_hot
+    pl.accuracy(true_labels, predicted_labels)
+    pl.precision(true_labels, predicted_labels)
+    pl.recall(true_labels, predicted_labels)
+    pl.f1_score(true_labels, predicted_labels)
 
 |
 
-The major features are:
+**Example**
+
+.. code-block:: python
+
+    # train any model
+    model = pl.Model()
+    model.fit(features, output)
+
+    # predict
+    predictions = model.predict(features)
+
+    # evaluate
+    accuracy = pl.accuracy(output, predictions)
+    precision = pl.precision(output, predictions)
+    recall = pl.recall(output, predictions)
+    f1 = pl.f1_score(output, predictions)
 
 |
+|
+
+Mean Squared Error
+------------------
+
+For regression tasks, you can calculate mean squared error:
+
+.. code-block:: python
+
+    pl.mean_squared_error(true_values, predicted_values)
+
+|
+
+**Example**
+
+.. code-block:: python
+
+    # true values and predicted values
+    true_values = [2, 4, 6, 8, 10]
+    predicted_values = [3, 5, 7, 9, 11]
+
+    # calculate MSE
+    mse = pl.mean_squared_error(true_values, predicted_values)
+
+|
+|
+
+Sum of Squared Errors
+----------------------
+
+Additionally, you can compute the sum of squared errors:
+
+.. code-block:: python
+
+    pl.sum_of_squared_errors(true_values, predicted_values)
+
+|
+
+**Example**
+
+.. code-block:: python
+
+    # true values and predicted values
+    true_values = [2, 4, 6, 8, 10]
+    predicted_values = [3, 5, 7, 9, 11]
+
+    # calculate MSE
+    sse = pl.sum_of_squared_errors(true_values, predicted_values)
+
+|
+|
+
+One-Hot Encoding
+----------------
+
+pylearn provides a function for one-hot encoding:
+
+.. code-block:: python
+
+    pl.to_one_hot(labels)
+
+|
+
+**Example**
+
+.. code-block:: python
+
+    #lLabels to encode
+    labels = [0, 1, 2, 3, 4]
+
+    # perform One-Hot Encoding
+    encoded_labels = pl.to_one_hot(labels)
+
+|
+|
+|
+|
+
 Classification
-~~~~~~~~~~~~~~
+--------------
 
-You can use Gaussian Naive Bayes.
+For classification tasks, PyLearn offers:
 
-Gaussian works for continuous data.
-Multinomial Naive Bayes works perfect for text classification and will come in version 1.1.0.
+|
 
-The usage is quite simple:
+Gaussian Naive Bayes
+~~~~~~~~~~~~~~~~~~~~
+
+Gaussian Naive Bayes is a probabilistic classifier that assumes that the features are independent and follows a normal distribution.
+
+|
+
+Usage Example:
 
 .. code-block:: python
 
-   gnb = pl.GaussianNaiveBayes()
+    gnb = pl.GaussianNaiveBayes()
+    gnb.fit(features, output)
+    predictions = gnb.predict(features)
 
 |
-Now, train the model by using the fit function:
+
+Multinomial Naive Bayes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Multinomial Naive Bayes is suitable for classification with discrete features (e.g., word counts).
+
+|
+
+Usage Example:
 
 .. code-block:: python
 
-   gnb.fit(features, output)
-
-|
-Let the model predict your input:
-
-.. code-block:: python
-
-   gnb.predict(features)
+    mnb = pl.MultinomialNaiveBayes()
+    mnb.fit(features, output)
+    predictions = mnb.predict(features)
 
 |
 |
+
 Clustering
-~~~~~~~~~~
+----------
 
-You can choose between K-Means and K-Medoids as clustering models.
+For clustering tasks, pylearn offers:
 
-The usage of both is quite similar:
+|
+
+K-Means
+~~~~~~~
+
+K-Means is a popular clustering algorithm that partitions data into K clusters based on similarity.
+
+|
+
+Usage Example:
 
 .. code-block:: python
 
-   kmeans = pl.KMeans()
-   kmedoids = pl.KMedoids()
+    kmeans = pl.KMeans()
+    kmeans.fit(points)
+    clusters = kmeans.assigned_clusters()
 
 |
-Now, train the model by using the fit function, we will use kmeans to continue:
+
+K-Medoids
+~~~~~~~~~
+
+K-Medoids is similar to K-Means but uses actual data points (medoids) as cluster centers.
+
+|
+
+Usage Example:
 
 .. code-block:: python
 
-   kmeans.fit(points)
+    kmedoids = pl.KMedoids()
+    kmedoids.fit(points)
+    clusters = kmedoids.assigned_clusters()
+    kmedoids.rename(old_cluster_id, new_cluster_id)
 
 |
-This returns a list of the to the data points assigned clusters.
-You could visualize the result with matplotlib.
+
+Gaussian Mixture Model
+~~~~~~~~~
+
+GMM is similar to K-Means but uses Gaussian distribution.
 
 |
-If you want to customize the result, the following functions may help you:
+
+Usage Example:
 
 .. code-block:: python
 
-   kmeans.assigned_clusters(any_cluster)
-   kmeans.rename(old, new)
+    gmm = pl.GaussianMixture()
+    gmm.fit(points)
 
 |
 |
+
 Neural Network
-~~~~~~~~~~~~~~
+--------------
 
-The neural network comes with different activation functions and loss functions.
-
-First, you need to create a network, for example:
+For neural network implementations, you can define a network architecture and train it using:
 
 .. code-block:: python
 
-   network = [
+    network = [
         pl.Dense_layer(input_length, output_length),
         pl.Tanh(),
-        plpDense_layer(input_length, output_length),
+        pl.Dense_layer(input_length, output_length),
         pl.Tanh()
     ]
 
-|
-Now, train the model:
-
-.. code-block:: python
-
     pl.NeuralNetwork.fit(x_train, y_train, network, loss, loss_derivative, epochs, log_error, log_duration)
+    predictions = pl.NeuralNetwork.predict(x, network)
 
 |
 
-Let the model predict your input:
+Usage Example:
 
 .. code-block:: python
 
-   pl.NeuralNetwork.predict(x, network)
+    # load data
+    features, output = load_data()
+
+    # train Gaussian Naive Bayes classifier
+    gnb = pl.GaussianNaiveBayes()
+    gnb.fit(features, output)
+
+    # predict
+    predictions = gnb.predict(features)
+
+    # evaluate
+    accuracy = pl.accuracy(output, predictions)
+    precision = pl.precision(output, predictions)
+    recall = pl.recall(output, predictions)
+    f1 = pl.f1_score(output, predictions)
+
+    print("Accuracy:", accuracy)
+    print("Precision:", precision)
+    print("Recall:", recall)
+    print("F1 Score:", f1)

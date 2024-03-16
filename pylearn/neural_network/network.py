@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import warnings
 
 class NeuralNetwork:
     @staticmethod
@@ -25,6 +26,8 @@ class NeuralNetwork:
         Returns:
             None
         """
+        warnings.warn(f"Parameters X and Y are of shape {X.shape} and {Y.shape}. This will be deprecated in the next version.", DeprecationWarning, stacklevel=2)
+
         start = time.time()
 
         for epoch in range(epochs):

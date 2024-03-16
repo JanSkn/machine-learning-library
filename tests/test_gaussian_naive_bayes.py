@@ -102,7 +102,6 @@ def test_model_performance():
     model.fit(X_train, Y_train)
 
     Y_pred = model.predict(X_test)
-    Y_pred = np.array(Y_pred).T[0]
 
     # average scores
     prec = precision(Y_test, Y_pred, average=True)                     
