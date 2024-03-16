@@ -7,7 +7,7 @@ Release notes
 
 |
 
-**Version 1.1.0 (2024-03-08):**
+**Version 1.1.0 (2024-03-16):**
 
 - Classification: New classification algorithm Multinomial Naive Bayes (MNB).
 - Clustering: New clustering algorithm Gaussian Mixture Model (GMM).
