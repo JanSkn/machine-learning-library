@@ -18,7 +18,7 @@ import sphinx_theme_pd
 project = 'PyLearn'
 copyright = '2023, Jan Skowron'
 author = 'Jan Skowron'
-release = '1.0.0'
+release = '1.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

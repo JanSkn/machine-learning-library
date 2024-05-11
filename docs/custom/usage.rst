@@ -198,7 +198,7 @@ pylearn provides a function for one-hot encoding:
 
 .. code-block:: python
 
-    #lLabels to encode
+    # labels to encode
     labels = [0, 1, 2, 3, 4]
 
     # perform One-Hot Encoding
