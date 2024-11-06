@@ -99,6 +99,39 @@ Functions for normalization:
 |
 |
 
+Train and test Data
+------------------
+
+You can split your data into train and test and shuffle the data:
+
+.. code-block:: python
+
+    pl.train_test_split(X, y, test_size, shuffle, random_seed)
+
+|
+
+**Example**
+
+.. code-block:: python
+
+    X = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+    y = np.array([0, 1, 0, 1, 0])
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_seed=42)
+
+    print("Training Features:")
+    print(X_train)
+    print("Training Labels:")
+    print(y_train)
+
+    print("Test Features:")
+    print(X_test)
+    print("Test Labels:")
+    print(y_test)
+
+|
+|
+
 Evaluation Metrics
 ------------------
 

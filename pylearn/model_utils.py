@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import dill
 from typing import BinaryIO
 
@@ -202,6 +201,39 @@ def to_one_hot(y: np.ndarray, num_of_classes=10) -> np.ndarray:
         one_hot[i, label] = 1
     
     return one_hot
+
+def train_test_split(X: np.ndarray, y: np.ndarray, test_size=0.2, shuffle=True, random_seed=None) -> np.ndarray:
+    """
+    Splits data into training and test sets.
+
+    Parameters:
+        :X (numpy.ndarray): List of feature lists.
+        :y (numpy.ndarray): List of labels.
+        :test_size (float, optional): Fraction of data to use as test data, default: 0.2
+        :shuffle (bool, optional): Whether to shuffle data before splitting, default: True
+        :random_seed (int, optional): Seed for reproducibility of shuffling, default: None
+
+    Returns:
+        Tuple of numpy arrays: (X_train, X_test, y_train, y_test) where X_train and X_test are the feature arrays, and y_train and y_test are the label arrays.
+    """
+    if random_seed is not None:
+        np.random.seed(random_seed)
+
+    # zip to shuffle X and y together
+    data = list(zip(X, y))
+
+    if shuffle:
+        np.random.shuffle(data)
+
+    test_len = int(len(data) * test_size)
+
+    train_data = data[test_len:]
+    test_data = data[:test_len]
+
+    X_test, y_test = zip(*test_data)
+    X_train, y_train = zip(*train_data)
+
+    return np.array(X_train), np.array(X_test), np.array(y_train), np.array(y_test)
 
 def save(file_name: str, model: object) -> None:
     """

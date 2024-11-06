@@ -1,5 +1,5 @@
 import numpy as np
-from pylearn import accuracy, precision, recall, f1_score, mean_squared_error, sum_of_squared_errors, min_max_normalization, z_normalization
+from pylearn import accuracy, precision, recall, f1_score, mean_squared_error, sum_of_squared_errors, min_max_normalization, z_normalization, train_test_split
 
 def test_accuracy():
     y_true = np.array([1, 2, 1, 2])
@@ -78,3 +78,19 @@ def test_z_normalization():
 
     expected_normalized_data = np.array([[-1, -1], [1, 1]])
     np.testing.assert_array_almost_equal(normalized_data, expected_normalized_data, decimal=2)
+
+def test_train_test_split():
+    X = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+    y = np.array([0, 1, 0, 1, 0])
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, shuffle=False)
+
+    expected_X_train = np.array([[5, 6], [7, 8], [9, 10]])
+    expected_X_test = np.array([[1, 2], [3, 4]])
+    expected_y_train = np.array([0, 1, 0])
+    expected_y_test = np.array([0, 1])
+
+    np.testing.assert_array_equal(X_train, expected_X_train)
+    np.testing.assert_array_equal(X_test, expected_X_test)
+    np.testing.assert_array_equal(y_train, expected_y_train)
+    np.testing.assert_array_equal(y_test, expected_y_test)

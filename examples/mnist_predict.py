@@ -14,7 +14,7 @@ from pylearn import NeuralNetwork, load, accuracy, precision, recall, f1_score
 
 network = load("mnist.pkl")
 
-(_, _), (x_test, y_test) = load("examples/data/mnist.npy")
+(_, _), (x_test, y_test) = load("data/mnist.npy")
 
 x_test, y_test = adjust_data(x_test, y_test, testing_data_size)
 
