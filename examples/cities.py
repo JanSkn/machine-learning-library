@@ -7,14 +7,13 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from pylearn import KMeans, KMedoids, GaussianMixture
 
 # Due to the short training duration, this example doesn't store and load the trained model and does training again every execution
 
-cities = pd.read_csv("examples/data/city_coordinates.csv")
+cities = pd.read_csv("data/city_coordinates.csv")
 city_coordinates = cities[["longitude", "latitude"]].values
 
 plt.figure(figsize=(10, 8)) 

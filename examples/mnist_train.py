@@ -12,7 +12,7 @@ from pylearn import Dense_layer, Tanh, mse, mse_derivative, NeuralNetwork, save,
 
 # load training data
 # x_train: image of 28 x 28 pixels, y_train: output of the number (0-9)
-(x_train, y_train), (_, _) = load("examples/data/mnist.npy")
+(x_train, y_train), (_, _) = load("data/mnist.npy")
 
 input_length = 784          # 28 x 28
 training_data_size = 10000

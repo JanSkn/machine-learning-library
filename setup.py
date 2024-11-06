@@ -42,7 +42,7 @@ with open("docs/requirements.txt") as f:
 
 setup(
     name="pylearn-ml",
-    version="1.1.0",      
+    version="1.2.0",
     author="Jan Skowron",
     url="https://github.com/JanSkn/machine-learning-library", 
     long_description=long_description,

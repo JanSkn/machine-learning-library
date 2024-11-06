@@ -9,12 +9,16 @@ sys.path.append(parent)
 
 import pandas as pd
 import numpy as np
-from pylearn import MultinomialNaiveBayes, accuracy, precision, recall, f1_score
+from pylearn import MultinomialNaiveBayes, accuracy, precision, recall, f1_score, train_test_split
 
-data = pd.read_csv("examples/data/fake_news.csv")
+data = pd.read_csv("data/fake_news.csv")
 data = data[["title", "real"]]      # remove unneccessary columns
-x_train, x_test = data["title"][:4000], data["title"][4000:]
-y_train, y_test = data["real"][:4000], pd.DataFrame(data["real"][4000:])        
+
+X = data["title"]
+y = data["real"]
+
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_seed=42)
+x_train, x_test, y_train, y_test = pd.Series(x_train), pd.Series(x_test), pd.Series(y_train), pd.Series(y_test)
 
 nb = MultinomialNaiveBayes()
 nb.fit(x_train, y_train)
